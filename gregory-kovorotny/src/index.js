@@ -1,7 +1,11 @@
 import { User } from './components/user';
 import { Developer } from './components/developer';
 
-const appUser = new User('Agent', 'Smith');
+const appUser = new User({
+  firstName: 'Agent',
+  lastName: 'Smith',
+});
+
 const leadDeveloper = new Developer({
   firstName: 'Gregory',
   lastName: 'Kovorotny',
