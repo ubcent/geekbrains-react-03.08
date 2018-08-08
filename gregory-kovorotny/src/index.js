@@ -14,3 +14,4 @@ const leadDeveloper = new Developer({
 document.getElementById('user').innerHTML = appUser.sayHi();
 
 document.getElementById('developer').innerHTML = `This app is being created by ${leadDeveloper.getInfo()}`;
+document.getElementById('developer').addEventListener('click', () => alert(new Date()));
