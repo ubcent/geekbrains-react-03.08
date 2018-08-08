@@ -8,7 +8,7 @@ export class User extends React.Component {
 
   render() {
     return (
-      <p>Hi, {this.props.firstName} {this.props.lastName}</p>
+      <div className="user">Hi, {this.props.firstName} {this.props.lastName}</div>
     );
   }
 }
