@@ -1,12 +1,16 @@
+import React from 'react';
 import './developer.css';
 
-export class Developer {
-  constructor(name) {
-    this._firstName = name.firstName;
-    this._lastName = name.lastName;
+export class Developer extends React.Component {
+  constructor(props) {
+    super(props);
   }
 
-  getInfo() {
-    return `${this._firstName} ${this._lastName}`;
+  render() {
+    return (
+      <p onClick={() => alert(new Date())}>
+        This app is being created by {this.props.firstName} {this.props.lastName}
+      </p>
+    );
   }
 }

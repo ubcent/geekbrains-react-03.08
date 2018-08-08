@@ -1,12 +1,14 @@
+import React from 'react';
 import './user.css';
 
-export class User {
-  constructor(name) {
-    this._firstName = name.firstName;
-    this._lastName = name.lastName;
+export class User extends React.Component {
+  constructor(props) {
+    super(props);
   }
 
-  sayHi() {
-    return `Hi, ${this._firstName} ${this._lastName}`;
+  render() {
+    return (
+      <p>Hi, {this.props.firstName} {this.props.lastName}</p>
+    );
   }
 }

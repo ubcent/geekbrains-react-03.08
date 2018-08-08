@@ -1,17 +1,21 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { User } from './components/user';
 import { Developer } from './components/developer';
 
-const appUser = new User({
-  firstName: 'Agent',
-  lastName: 'Smith',
-});
 
-const leadDeveloper = new Developer({
-  firstName: 'Gregory',
-  lastName: 'Kovorotny',
-});
+ReactDOM.render(
+  <User
+    firstName="Agent"
+    lastName="Smith"
+  />,
+  document.getElementById('user')
+);
 
-document.getElementById('user').innerHTML = appUser.sayHi();
-
-document.getElementById('developer').innerHTML = `This app is being created by ${leadDeveloper.getInfo()}`;
-document.getElementById('developer').addEventListener('click', () => alert(new Date()));
+ReactDOM.render(
+  <Developer
+    firstName="Gregory"
+    lastName="Kovorotny"
+  />,
+  document.getElementById('developer')
+);
