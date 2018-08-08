@@ -1,0 +1,11 @@
+div.user {
+  background-color: orange;
+  width: 200px;
+  height: 100px;
+}
+div.developer {
+  background: #f6f6f6;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}

@@ -1,5 +1,12 @@
-import { Human } from './user';
+import { User } from './components/user';
+import { Developer } from './components/developer';
 
-const vasya = new Human('Vasya', 'Pupkin');
+const appUser = new User('Agent', 'Smith');
+const leadDeveloper = new Developer({
+  firstName: 'Gregory',
+  lastName: 'Kovorotny',
+});
 
-alert(vasya.sayHi());
+document.getElementById('user').innerHTML = appUser.sayHi();
+
+document.getElementById('developer').innerHTML = `This app is being created by ${leadDeveloper.getInfo()}`;
