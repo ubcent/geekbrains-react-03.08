@@ -1,5 +1,5 @@
-import { Human } from './user';
+import {Human} from './user';
 
-const vasya = new Human('Vasya', 'Pupkin');
-
+const vasya = new Human();
 alert(vasya.sayHi());
+console.log("asd");
