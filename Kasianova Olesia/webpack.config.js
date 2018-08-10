@@ -1,38 +1,36 @@
+// для работы с полными путями ставим дополнительное расширение "path"
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, 'src', 'index.js'),
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        },
-      },
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader']
-        })
-      },
-    ]
-  },
-  plugins: [
-    new ExtractTextPlugin({ filename: 'bundle.css' }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html'),
-      filename: 'index.html',
-    })
-  ]
-}
+    // что собирать
+    entry: path.join(__dirname, 'app', 'main.js'),
+    // куда выводить
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+        library: 'lib'
+    },
+
+    // подключаем devtool, чтобы видеть модули в отладчике
+    devtool: 'source-map',
+
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            }
+        ]
+    },
+
+    // Конфигурируем веб-сервер
+    // Запуск - npm run server
+    // Остановка Windows CMD - for /f "tokens=5" %a in ('netstat -aon ^| findstr 9000 ^| findstr LISTENING') do taskkill /pid %a /f
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        port: 9000,
+        open: true
+    }
+
+};
