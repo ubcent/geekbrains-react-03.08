@@ -3,36 +3,36 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, 'src', 'index.js'),
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        },
-      },
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader']
+    entry: {
+        main: path.resolve(__dirname, 'src', 'index.js'),
+    },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                },
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader']
+                })
+            },
+        ]
+    },
+    plugins: [
+        new ExtractTextPlugin({filename: 'bundle.css'}),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src', 'index.html'),
+            filename: 'index.html',
         })
-      },
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin({ filename: 'bundle.css' }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html'),
-      filename: 'index.html',
-    })
-  ]
 }
