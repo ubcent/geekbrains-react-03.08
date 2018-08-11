@@ -1,0 +1,12 @@
+.menu {
+  background-color: orange;
+  width: 100px;
+}
+
+.menu-big li a {
+  font-size: 24px;
+}
+
+.menu-small li a {
+  font-size: 16px;
+}

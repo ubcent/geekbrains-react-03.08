@@ -1,2 +1,2 @@
 # gregory - ignore dist folder
-dist
+/dist/
