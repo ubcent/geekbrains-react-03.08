@@ -1,0 +1,22 @@
+.home-page {
+  padding: 65px 50px;
+  height: 100vh;
+}
+
+.home-page .left-content {
+  text-align: center;
+  padding: 20px;
+  height: 100%;
+  border: solid 1px;
+  border-radius: 5px;
+  border-color: grey;
+}
+
+.home-page .main-content {
+  text-align: center;
+  padding: 20px;
+  height: 100%;
+  border: solid 1px;
+  border-radius: 5px;
+  border-color: grey;
+}

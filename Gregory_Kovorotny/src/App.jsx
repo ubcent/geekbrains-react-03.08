@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
-import Menu from './components/Menu';
 import Wrapper from './components/Wrapper';
+import MenuHeader from './components/MenuHeader';
+import MenuFooter from './components/MenuFooter';
+import HomePage from './components/HomePage';
 
-const menu1 = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-]
+import Config from './config';
 
-const menu2 = [
-  { label: 'News', href: '/news' },
-  { label: 'Sport', href: '/sport' },
-]
 
 export class App extends Component {
   render() {
     return (
-      <div>
-        <Menu size='big' items={menu1} />
-
         <Wrapper>
-          <div>Hello world (wrapped)</div>
-          <Menu items={menu2} />
+          <MenuHeader items={Config.menuHeader} />
+          <HomePage />
+          <MenuFooter items={Config.menuFooter} />
         </Wrapper>
-      </div>
     );
   }
 }

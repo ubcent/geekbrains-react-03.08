@@ -6,7 +6,7 @@ export default class Wrapper extends Component {
   render() {
     const { children } = this.props;
     return (
-      <div className='container'>{children}</div>
+      <div className='wrapper'>{children}</div>
     );
   }
 }
