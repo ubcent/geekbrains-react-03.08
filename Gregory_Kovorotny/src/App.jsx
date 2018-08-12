@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 
 import Wrapper from './components/Wrapper';
 import MenuHeader from './components/MenuHeader';
