@@ -13,9 +13,9 @@ export class App extends Component {
   render() {
     return (
         <Wrapper>
-          <MenuHeader items={Config.menuHeader} />
+          <MenuHeader items={Config.menu} />
           <HomePage />
-          <MenuFooter items={Config.menuFooter} />
+          <MenuFooter items={Config.menu} />
         </Wrapper>
     );
   }

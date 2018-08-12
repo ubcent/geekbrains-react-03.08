@@ -14,11 +14,13 @@ export default class LoginForm extends Component {
 
   render() {
     return (
+      // Buttons лучше в форме оставить и обрабатывать onSubmit?
+      // или же в Modal и по клику ТАМ уже собирать данные с Input по id ???
       <div className='login-form'>
         <Form>
           <FormGroup>
             <Label for='userLogin'>Login</Label>
-            <Input type='text' name='userLogin' id='userLogin' placeholder='Your login' />
+            <Input autoFocus type='text' name='userLogin' id='userLogin' placeholder='Your login' />
           </FormGroup>
           <FormGroup>
             <Label for='userPassword'>Password</Label>

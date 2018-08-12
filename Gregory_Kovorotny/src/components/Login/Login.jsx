@@ -29,10 +29,13 @@ export default class Login extends Component {
   }
 
   render() {
+    const className = 'login';
     return (
-      <div className='login'>
+      // Buttons лучше оставить в Modal? или перенести в Form (LoginForm.jsx компонент)
+      // но в этом случае не нашел пока как сделать, чтобы по Enter срабатывала Login Button
+      <div className={className}>
         <Button outline color="secondary" onClick={this.toggle}>Login</Button>
-        <Modal centered isOpen={this.state.modal} toggle={this.toggle} className='login'>
+        <Modal autoFocus={false} centered isOpen={this.state.modal} toggle={this.toggle} className={className}>
           <ModalBody><LoginForm /></ModalBody>
           <ModalFooter>
             <Button onClick={this.toggle}>Login</Button>
