@@ -1,25 +1,25 @@
 const path = require('path');
-const ExtractTextPlugin = require('../Library/Caches/typescript/2.9/node_modules/@types/extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('../Library/Caches/typescript/2.9/node_modules/@types/html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, 'src', 'index.jsx'),
+    main: path.resolve(__dirname, 'src', 'index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['react']
+          }
         },
       },
       {
