@@ -38,19 +38,13 @@ export default class Login extends Component {
   }
 
   login() {
-    console.log('Login pressed');
     const { userLogin, userPassword } = this.state;
-    console.log(this.state); // тут modal пока что === true. это ясно
-
     if (userLogin === 'user' && userPassword === '1234') {
-      this.setState({ userLoginError: false });
-      this.setState({ userPasswordError: false });
+      this.setState({ userLoginError: false, userPasswordError: false });
       this.toggle();
-      console.log(this.state); // почему modal все еще === true???
-      console.log(this); // а вот тут все ОК: modal === false !!!
     } else {
-      this.setState({ userLoginError: true });
-      this.setState({ userPasswordError: true });
+      this.setState({ userLoginError: true, userPasswordError: true });
+      setTimeout(() => this.setState({ userLoginError: false, userPasswordError: false }), 2000);
     }
   }
 
