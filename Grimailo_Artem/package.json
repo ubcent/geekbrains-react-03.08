@@ -1,0 +1,36 @@
+{
+  "name": "Grimailo_Artem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "production": "webpack --mode production",
+    "dev": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grimailo/geekbrains-react-03.08.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grimailo/geekbrains-react-03.08/issues"
+  },
+  "homepage": "https://github.com/grimailo/geekbrains-react-03.08#readme",
+  "dependencies": {
+    "react": "^16.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  }
+}
