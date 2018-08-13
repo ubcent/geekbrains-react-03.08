@@ -1,6 +1,6 @@
-import {Human} from './user';
-import {Developer} from './developer';
-import {MyGetDate} from './date';
+import { Human} from './user';
+import { Developer } from './developer';
+import { MyGetDate } from './date';
 
 
 const vasya = new Human('Vasya', 'Pupkin');
