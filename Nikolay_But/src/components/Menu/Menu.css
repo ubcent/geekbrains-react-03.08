@@ -1,5 +1,12 @@
 .menu {
   background-color: aquamarine;
+  display: flex;
+  flex-flow: row no wrap;
+  list-style-type: none;
+  justify-content: flex-start;
+}
+.menu li {
+  margin-left: 2em;
 }
 
 .menu-big li a {

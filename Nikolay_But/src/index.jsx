@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import Menu from './components/Menu';
-import Wrapper from './components/Wrapper';
+import Layout from './components/Layout';
 
 const menuItems = [
   {
@@ -19,10 +19,10 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Wrapper>
+        <Layout>
           <div>Hello world</div>
-          <Menu size="big" />
-        </Wrapper>
+          <Menu size="big" items={menuItems} />
+        </Layout>
       </Fragment>
     )
   }

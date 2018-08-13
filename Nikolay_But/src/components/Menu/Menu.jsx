@@ -19,7 +19,7 @@ export default class Menu extends Component {
 
   render() {
     const { items, size } = this.props;
-    
+
     const className = classNames('menu', {
       'menu-big': size === 'big',
       'menu-small': size === 'small',
