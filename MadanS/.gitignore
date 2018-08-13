@@ -63,3 +63,7 @@ typings/
 # ignore folders
 dist
 node_modules
+
+# ignore folders
+gregory-kovorotny
+Nikita_Sysoev
