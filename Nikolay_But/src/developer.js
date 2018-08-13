@@ -1,7 +1,4 @@
-'use strict';
-import {
-  Human
-} from './user';
+import { Human } from './user';
 
 
 export class Developer extends Human {

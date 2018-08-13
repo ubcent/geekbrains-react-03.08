@@ -1,6 +1,6 @@
 import {Human} from './user';
 import {Developer} from './developer';
-import {myGetDate} from './date';
+import {MyGetDate} from './date';
 
 
 const vasya = new Human('Vasya', 'Pupkin');
@@ -15,7 +15,7 @@ dateButton.addEventListener('click', () => {
   if (dateEl) {
     dateEl.remove();
   } else {
-    const Date = new myGetDate;
+    const Date = new MyGetDate;
     const now = Date.display();
     const dateEl = document.createElement('span');
     dateEl.dataset.el = 'date';

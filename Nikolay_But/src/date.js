@@ -1,12 +1,16 @@
-'use strict';
+import './../vendor/moment-with-locales.min.js'
 
-export class myGetDate {
+export class MyGetDate {
   constructor(date) {
     this.date = date
   }
 
+  set() {
+    this.date = moment().format('dd.mm.yyyy');
+  }
+
   get() {
-    this.date = new Date();
+    return this.date;
   }
 
   display() {
