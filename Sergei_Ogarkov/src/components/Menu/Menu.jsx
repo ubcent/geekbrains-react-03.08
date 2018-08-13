@@ -2,12 +2,11 @@ import './Menu.css';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop';
-
+import PropTypes from 'prop-types';
 
 export default class Menu extends Component {
     static propTypes = {
-        items: propTypes.arrayOf(
+        items: PropTypes.arrayOf(
             PropTypes.shape({href: PropTypes.string, label: PropTypes.string})
         ),
             size: PropTypes.oneOf(['big', 'small']),
