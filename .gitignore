@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# ignore folders
+gregory-kovorotny
+Nikita_Sysoev
+
+# ignore folders

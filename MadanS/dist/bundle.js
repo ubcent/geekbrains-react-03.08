@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _nameDeveloper = __webpack_require__(/*! ./nameDeveloper */ \"./src/nameDeveloper.js\");\n\nvar developer = new _nameDeveloper.Developer({ firstName: 'Serafima', lastName: 'Madan' }); //console.log('Hello');\n//import { Human } from './user';\n\n//const vasya = new Human('Vasya', 'Pupkin');\n\n//alert(vasya.sayHi());\n\n//import { Human } from './user';\n\n//const vasya = new Human('Vasya', 'Pupkin');\n\n//alert(vasya.sayHi());\n\n\n//задание 2\n\nalert(developer.firstName);\nalert(developer.lastName);\ndeveloper.showInfo();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("\n\nvar _nameDeveloper = __webpack_require__(/*! ./nameDeveloper */ \"./src/nameDeveloper.js\");\n\nvar developer = new _nameDeveloper.Developer({ firstName: 'Serafima', lastName: 'Madan' });\n\n//задание 2\n\nalert(developer.firstName);\nalert(developer.lastName);\ndeveloper.showInfo();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
