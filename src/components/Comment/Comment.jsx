@@ -8,8 +8,8 @@ export default function(props) {
 
   return (
     <div className="Comment">
-      <h4>{author}</h4>
-      <div>{message}</div>
+      <h4 className="author">{author}</h4>
+      <div className="message">{message}</div>
     </div>
   );
 }
