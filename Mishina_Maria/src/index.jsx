@@ -1,30 +1,19 @@
-import React, {Component} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
 
-import Menu from './components/Menu';
-import Wrapper from './components/Wrapper';
+import Layout from './components/Layout';
+import NavBar from './components/NavBar';
 
-const menuItems = [
-    {
-        label:'Home',
-        href: '/'
-    },
-    {
-        label:'News',
-        href:'/new'
-    },
-];
 
 class App extends Component {
     render() {
         return(
-            <div>
-                <Menu size="small" items={menuItems} />
-
-                <Wrapper>
-                    <div>Hello World!</div>
-                </Wrapper>
-            </div>
+            <Fragment>
+                <NavBar/>
+                <Layout/>
+            </Fragment>
         )
     }
 }
