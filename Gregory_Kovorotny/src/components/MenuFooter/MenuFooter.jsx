@@ -8,7 +8,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink } from 'reactstrap';
+  NavLink,
+} from 'reactstrap';
 
 export default class MenuFooter extends Component {
   static propTypes = {
@@ -25,9 +26,9 @@ export default class MenuFooter extends Component {
     const { items } = this.props;
 
     return (
-      <div className='menu-footer'>
-        <Navbar expand fixed='bottom'>
-          <Nav className='ml-auto' navbar>
+      <div className="menu-footer">
+        <Navbar expand fixed="bottom">
+          <Nav className="ml-auto" navbar>
             {items.map((item) => <NavItem><NavLink href={item.href}>{item.label}</NavLink></NavItem>)}
           </Nav>
         </Navbar>

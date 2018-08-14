@@ -1,4 +1,4 @@
-export default class Config {
+export default class Content {
   // не совсем уверен, что решение верное
   // но как вариант, вместо Config здесь мог бы быть класс
   // подгружающий данные с БД

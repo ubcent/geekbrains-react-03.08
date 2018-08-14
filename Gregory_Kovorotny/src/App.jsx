@@ -5,16 +5,16 @@ import MenuHeader from './components/MenuHeader';
 import MenuFooter from './components/MenuFooter';
 import HomePage from './components/HomePage';
 
-import Config from './config';
+import Content from './Content';
 
 
 export class App extends Component {
   render() {
     return (
         <Wrapper>
-          <MenuHeader items={Config.menu} />
+          <MenuHeader items={Content.menu} />
           <HomePage />
-          <MenuFooter items={Config.menu} />
+          <MenuFooter items={Content.menu} />
         </Wrapper>
     );
   }

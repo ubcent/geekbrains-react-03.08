@@ -13,7 +13,8 @@ import {
   FormGroup,
   Label,
   Input,
-  FormFeedback } from 'reactstrap';
+  FormFeedback,
+} from 'reactstrap';
 
 
 export default class Login extends Component {
@@ -26,18 +27,15 @@ export default class Login extends Component {
       userLoginError: false,
       userPasswordError: false,
     };
-
-    this.toggle = this.toggle.bind(this);
-    this.login = this.login.bind(this);
   }
 
-  toggle() {
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
   }
 
-  login() {
+  login = () => {
     const { userLogin, userPassword } = this.state;
     if (userLogin === 'user' && userPassword === '1234') {
       this.setState({ userLoginError: false, userPasswordError: false });
@@ -46,6 +44,12 @@ export default class Login extends Component {
       this.setState({ userLoginError: true, userPasswordError: true });
       setTimeout(() => this.setState({ userLoginError: false, userPasswordError: false }), 2000);
     }
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   }
 
   render() {
@@ -57,23 +61,24 @@ export default class Login extends Component {
         <Button outline color="secondary" onClick={this.toggle}>Login</Button>
         <Modal autoFocus={false} centered isOpen={this.state.modal} toggle={this.toggle} className={className}>
           <ModalBody>
-            <div className='login-form'>
+            <div className="login-form">
               <Form>
                 <FormGroup>
-                  <Label for='userLogin'>Login</Label>
+                  <Label for="userLogin">Login</Label>
                   <Input
-                    autoFocus type='text' name='userLogin' id='userLogin' placeholder='Your login'
+                    id="userLogin" type="text" name="userLogin" placeholder="Your login"
+                    autoFocus
                     invalid={this.state.userLoginError}
-                    onChange={(e) => this.setState({ userLogin: e.target.value })}
+                    onChange={this.handleChange}
                   />
                   <FormFeedback>User name doesn't exist!</FormFeedback>
                 </FormGroup>
                 <FormGroup>
-                  <Label for='userPassword'>Password</Label>
+                  <Label for="userPassword">Password</Label>
                   <Input
-                    type='password' name='userPassword' id='userPassword' placeholder='Your password'
+                    id="userPassword" type="password" name="userPassword" placeholder="Your password"
                     invalid={this.state.userPasswordError}
-                    onChange={(e) => this.setState({ userPassword: e.target.value })}
+                    onChange={this.handleChange}
                   />
                   <FormFeedback>Wrong password!</FormFeedback>
                 </FormGroup>

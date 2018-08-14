@@ -8,7 +8,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink } from 'reactstrap';
+  NavLink,
+} from 'reactstrap';
 
 import Login from '../Login';
 
@@ -27,10 +28,10 @@ export default class MenuHeader extends Component {
     const { items } = this.props;
 
     return (
-      <div className='menu-header'>
-        <Navbar expand fixed='top'>
-          <NavbarBrand href='/'>MY BLOG</NavbarBrand>
-          <Nav className='ml-auto' navbar>
+      <div className="menu-header">
+        <Navbar expand fixed="top">
+          <NavbarBrand href="/">MY BLOG</NavbarBrand>
+          <Nav className="ml-auto" navbar>
             {items.map((item) => <NavItem><NavLink href={item.href}>{item.label}</NavLink></NavItem>)}
             <NavItem><Login /></NavItem>
           </Nav>
