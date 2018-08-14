@@ -2,48 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04cf4086-ea2f-498e-9585-22bf72e3d518" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MadanS/src/components/Menu/Menu.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MadanS/src/components/Menu/Menu.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MadanS/src/components/Menu/Menu.spec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MadanS/src/components/Menu/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MadanS/src/components/wrapper/Wrapper.cpec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MadanS/src/components/wrapper/Wrapper.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MadanS/src/components/wrapper/Wrapper.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MadanS/src/components/wrapper/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MadanS/src/index.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/.babelrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/package-lock.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/src/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/src/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/src/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/src/vendors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nikita_Sysoev/webpack.config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/package-lock.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/src/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/src/components/developer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/src/components/developer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/src/components/user.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/src/components/user.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/src/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/src/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gregory-kovorotny/webpack.config.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MadanS/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MadanS/src/nameDeveloper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MadanS/src/user.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MadanS/src/user.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MadanS/.babelrc" afterPath="$PROJECT_DIR$/MadanS/.babelrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MadanS/package-lock.json" afterPath="$PROJECT_DIR$/MadanS/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MadanS/package.json" afterPath="$PROJECT_DIR$/MadanS/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MadanS/src/index.html" afterPath="$PROJECT_DIR$/MadanS/src/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MadanS/webpack.config.js" afterPath="$PROJECT_DIR$/MadanS/webpack.config.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,6 +14,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="531">
+              <caret line="63" column="7" lean-forward="false" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MadanS/src/components/Menu/index.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -74,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Menu.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MadanS/src/components/Menu/Menu.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
@@ -115,7 +85,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/MadanS/.gitignore" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/MadanS/webpack.config.js" />
         <option value="$PROJECT_DIR$/MadanS/.babelrc" />
         <option value="$PROJECT_DIR$/MadanS/src/components/Menu/index.js" />
@@ -126,6 +95,7 @@
         <option value="$PROJECT_DIR$/MadanS/src/index.jsx" />
         <option value="$PROJECT_DIR$/MadanS/src/index.html" />
         <option value="$PROJECT_DIR$/MadanS/src/components/Menu/Menu.jsx" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -178,32 +148,6 @@
               <item name="geekbrains-react-03.08" type="b2602c69:ProjectViewProjectNode" />
               <item name="geekbrains-react-03.08" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="geekbrains-react-03.08" type="b2602c69:ProjectViewProjectNode" />
-              <item name="geekbrains-react-03.08" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="MadanS" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="geekbrains-react-03.08" type="b2602c69:ProjectViewProjectNode" />
-              <item name="geekbrains-react-03.08" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="MadanS" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="geekbrains-react-03.08" type="b2602c69:ProjectViewProjectNode" />
-              <item name="geekbrains-react-03.08" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="MadanS" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="geekbrains-react-03.08" type="b2602c69:ProjectViewProjectNode" />
-              <item name="geekbrains-react-03.08" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="MadanS" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Menu" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -248,12 +192,12 @@
       <option name="presentableId" value="Default" />
       <updated>1534190448012</updated>
       <workItem from="1534190449212" duration="1223000" />
-      <workItem from="1534238939435" duration="17818000" />
+      <workItem from="1534238939435" duration="19524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19041000" />
+    <option name="totallyTimeSpent" value="20747000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -350,14 +294,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -477,6 +413,14 @@
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="63" column="7" lean-forward="false" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
