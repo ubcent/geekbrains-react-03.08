@@ -1,6 +1,5 @@
 # Logs
 logs
-.idea
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -33,8 +32,6 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
-Sergei_ogarkov/.idea
-
 # Dependency directories
 node_modules/
 jspm_packages/
@@ -62,6 +59,3 @@ typings/
 
 # next.js build output
 .next
-
-# distributive folder
-**/dist
