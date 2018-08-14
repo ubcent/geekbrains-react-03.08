@@ -35,7 +35,7 @@ export default class Login extends Component {
     });
   }
 
-  login = () => {
+  handleLogin = () => {
     const { userLogin, userPassword } = this.state;
     if (userLogin === 'user' && userPassword === '1234') {
       this.setState({ userLoginError: false, userPasswordError: false });
@@ -86,7 +86,7 @@ export default class Login extends Component {
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button onClick={this.login}>Login</Button>
+            <Button onClick={this.handleLogin}>Login</Button>
             <Button onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
