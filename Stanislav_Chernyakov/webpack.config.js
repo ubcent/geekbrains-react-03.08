@@ -1,6 +1,6 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('../Library/Caches/typescript/2.9/node_modules/@types/extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('../Library/Caches/typescript/2.9/node_modules/@types/html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -11,10 +11,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
-    alias: {
-      components: path.resolve(__dirname, 'src', 'components'),
-    },
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
@@ -26,10 +23,10 @@ module.exports = {
         },
       },
       {
-        test: /\.s?css$/,
+        test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: ['css-loader']
         })
       },
     ]

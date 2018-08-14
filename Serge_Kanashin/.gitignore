@@ -1,3 +1,4 @@
+dist
 # Logs
 logs
 *.log
@@ -59,6 +60,3 @@ typings/
 
 # next.js build output
 .next
-
-# distributive folder
-**/dist
