@@ -1,0 +1,25 @@
+.menu-footer .navbar {
+  margin-bottom: 0;
+  background-color: #4682B4;
+  z-index: 9999;
+  border: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.menu-footer .navbar-brand {
+  font-weight: 600;
+}
+
+.menu-footer .navbar a {
+  color: #ccc;
+}
+
+.menu-footer .navbar a:hover {
+  color: #333;
+}
+
+.menu-footer .nav-item {
+  margin-left: 5px;
+  margin-right: 5px;
+}
