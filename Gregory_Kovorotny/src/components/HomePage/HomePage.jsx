@@ -16,8 +16,12 @@ export default class HomePage extends Component {
       <div className='home-page'>
         <Container>
           <Row>
-            <Col sm="3" className='left-content'>Left content</Col>
-            <Col sm="9" className='main-content'>Main content</Col>
+            <Col sm="3" className='left-content'>
+              <p>Left content</p>
+            </Col>
+            <Col sm="9" className='main-content'>
+              <p>Main content</p>
+            </Col>
           </Row>
         </Container>
       </div>
