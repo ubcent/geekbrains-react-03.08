@@ -1,0 +1,11 @@
+.menu {
+    background: #5c9ccc;
+}
+
+.menu-big li a {
+    font-size: 24px;
+}
+
+.menu-small li a {
+    font-size: 16px;
+}
