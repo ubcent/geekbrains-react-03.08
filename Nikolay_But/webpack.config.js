@@ -1,6 +1,6 @@
 const path = require('path');
-const ExtractTextPlugin = require('../Library/Caches/typescript/2.9/node_modules/@types/extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('../Library/Caches/typescript/2.9/node_modules/@types/html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
