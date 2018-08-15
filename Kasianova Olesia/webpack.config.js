@@ -1,36 +1,82 @@
-// для работы с полными путями ставим дополнительное расширение "path"
-const path = require('path');
+var path = require('path'),
+    webpack = require('webpack'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
+    CleanWebpackPlugin = require('clean-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    // что собирать
-    entry: path.join(__dirname, 'app', 'main.js'),
-    // куда выводить
+    entry: {
+        vendors: path.join(__dirname, 'src', 'vendors'),
+        app: path.join(__dirname, 'src', 'app')
+    },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js',
-        library: 'lib'
+        filename: '[name].js'
     },
-
-    // подключаем devtool, чтобы видеть модули в отладчике
-    devtool: 'source-map',
-
     module: {
-        rules: [
+        loaders: [{
+                test: /\.jsx?$/,
+                exclude: /node_modules|bower_components/,
+                loader: 'babel',
+                query: {
+                    presets: [
+                        'react',
+                        'es2015',
+                        'stage-0'
+                    ],
+                    plugins: ['react-html-attrs', 'transform-decorators-legacy']
+                }
+            },
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: "babel-loader"
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
+            },
+            {
+                test: /\.(woff|woff2)$/,
+                loader: "url-loader?limit=10000&mimetype=application/font-woff&name=./fonts/[name].[ext]"
+            },
+            {
+                test: /\.ttf$/,
+                loader: "url-loader?limit=10000&mimetype=application/octet-stream&name=./fonts/[name].[ext]"
+            },
+            {
+                test: /\.eot$/,
+                loader: "url-loader?limit=10000&mimetype=application/octet-stream&name=./fonts/[name].[ext]"
+            },
+            {
+                test: /\.svg$/,
+                loader: "url-loader?limit=10000&mimetype=application/svg+xml&name=./fonts/[name].[ext]"
             }
         ]
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx', '.sass', '.css']
+    },
+    plugins: [
+       
+        new webpack.NoErrorsPlugin(),
 
-    // Конфигурируем веб-сервер
-    // Запуск - npm run server
-    // Остановка Windows CMD - for /f "tokens=5" %a in ('netstat -aon ^| findstr 9000 ^| findstr LISTENING') do taskkill /pid %a /f
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        port: 9000,
-        open: true
-    }
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src', 'index.html'),
+            filename: path.join(__dirname, 'dist', 'index.html')
+        }),
 
+        new BrowserSyncPlugin({
+            host: 'localhost',
+            port: 3000,
+            server: {
+                baseDir: ['dist']
+            }
+        }),
+
+       
+        new CopyWebpackPlugin([
+            {
+                from: './src/app/static'
+            }
+        ]),
+
+        new CleanWebpackPlugin(['dist'])
+    ]
 };
