@@ -1,0 +1,27 @@
+#main{
+    background-color: #d3e6ff;
+    width: 200px;
+    height: 190px;
+    font-size: 20px;
+    padding: 30px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 5px solid #0e8fef;
+}
+
+button{
+    background: #f16d7f;
+    width: 130px;
+    height: 38px;
+    color: #FFF;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    line-height: 34px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+}

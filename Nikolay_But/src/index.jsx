@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import Menu from './components/Menu';
-import Wrapper from './components/Wrapper';
+import Layout from './components/Layout';
+import Sidebar from './components/Sidebar';
+import Content from './components/Content';
 
 const menuItems = [
   {
@@ -11,18 +13,41 @@ const menuItems = [
   },
   {
     label: 'News',
+    href: '/news'
+  },
+];
+
+const sidebarItems = [
+  {
+    label: 'All articles',
+    href: '/all'
+  },
+  {
+    label: 'New articles',
     href: '/new'
   },
-]
+];
+
+const articles = [
+  {
+    label: 'All articles',
+    href: '/all'
+  },
+  {
+    label: 'New articles',
+    href: '/new'
+  },
+];
 
 class App extends Component {
   render() {
     return (
       <Fragment>
-        <Wrapper>
-          <div>Hello world</div>
-          <Menu size="big" />
-        </Wrapper>
+        <Layout className="layout row">
+            <Menu size="big" items={menuItems}></Menu>
+            <Sidebar items={sidebarItems}/>
+            <Content articles={articles} />
+        </Layout>
       </Fragment>
     )
   }
