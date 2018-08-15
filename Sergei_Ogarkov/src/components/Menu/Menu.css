@@ -1,0 +1,11 @@
+.menu {
+    background-color: burlywood;
+}
+
+.menu-big li a {
+    font-size: 24px;
+}
+
+.menu-small {
+    font-size: 16px;
+}
