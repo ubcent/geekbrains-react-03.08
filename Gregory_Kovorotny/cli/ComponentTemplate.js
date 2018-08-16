@@ -18,19 +18,22 @@ export default class ${name} extends Component {
       </div>
     );
   }
-}`);
+}
+`);
   }
 
   this.scss = function(name) {
     return (
 `.${name.split(/(?=[A-Z])/).reduce((className, word, i) => className + '-' + word).toLowerCase()} {
 
-}`);
+}
+`);
   }
 
   this.js = function(name) {
     return (
-`export default from './${name}';`);
+`export default from './${name}';
+`);
   }
 
   this.test = function(name) {
@@ -45,7 +48,8 @@ import ${name} from './${name}';
 
 test('${name} should ...', () => {
 
-});`);
+});
+`);
   }
 
 }
