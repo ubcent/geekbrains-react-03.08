@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import CommentsList from 'components/CommentsList';
+import CommentsList from 'containers/CommentsListContainer';
 import CommentsForm from 'components/CommentsForm';
 
 class App extends Component {
