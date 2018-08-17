@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
-import Wrapper from './components/Wrapper';
-import MenuHeader from './components/MenuHeader';
-import MenuFooter from './components/MenuFooter';
-import HomePage from './components/HomePage';
+import MenuHeader from 'components/MenuHeader';
+import Footer from 'components/Footer';
+import PageContent from 'components/PageContent';
 
 import Content from './Content';
 
@@ -11,11 +10,11 @@ import Content from './Content';
 export class App extends Component {
   render() {
     return (
-        <Wrapper>
+        <Fragment>
           <MenuHeader items={Content.menu} />
-          <HomePage />
-          <MenuFooter items={Content.menu} />
-        </Wrapper>
+          <PageContent />
+          <Footer />
+        </Fragment>
     );
   }
 }

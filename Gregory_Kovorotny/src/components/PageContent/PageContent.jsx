@@ -1,4 +1,4 @@
-import './HomePage.css';
+import './PageContent.scss';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -11,7 +11,7 @@ import {
 import CommentsList from 'components/CommentsList';
 import CommentForm from 'components/CommentForm';
 
-export default class HomePage extends Component {
+export default class PageContent extends Component {
   constructor(props) {
     super(props);
 
@@ -32,16 +32,16 @@ export default class HomePage extends Component {
     const { comments } = this.state;
 
     return (
-      <div className="home-page">
+      <div className="page-content">
         <Container>
           <Row>
-            <Col sm="3" className="left-content">
-              <p>Left content</p>
-            </Col>
-            <Col sm="9" className="main-content">
-              <p>Main content</p>
+            <Col md="8" className="blog-entries">
+              <p>blog-entries</p>
               <CommentsList comments={comments}/>
               <CommentForm onSubmit={this.handleSubmit} />
+            </Col>
+            <Col md="4" className="sidebar-widgets">
+              <p>sidebar-widgets</p>
             </Col>
           </Row>
         </Container>

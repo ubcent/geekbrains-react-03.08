@@ -1,9 +1,10 @@
-import './MenuHeader.css';
+import './MenuHeader.scss';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {
+  Container,
   Navbar,
   NavbarBrand,
   Nav,
@@ -11,7 +12,7 @@ import {
   NavLink,
 } from 'reactstrap';
 
-import Login from '../Login';
+import Login from 'components/Login';
 
 export default class MenuHeader extends Component {
   static propTypes = {
@@ -30,11 +31,13 @@ export default class MenuHeader extends Component {
     return (
       <div className="menu-header">
         <Navbar expand fixed="top">
-          <NavbarBrand href="/">MY BLOG</NavbarBrand>
-          <Nav className="ml-auto" navbar>
-            {items.map((item) => <NavItem><NavLink href={item.href}>{item.label}</NavLink></NavItem>)}
-            <NavItem><Login /></NavItem>
-          </Nav>
+          <Container>
+            <NavbarBrand href="/">MY BLOG</NavbarBrand>
+            <Nav className="lg-auto" navbar>
+              {items.map((item) => <NavItem><NavLink href={item.href}>{item.label}</NavLink></NavItem>)}
+              <NavItem><Login /></NavItem>
+            </Nav>
+          </Container>
         </Navbar>
       </div>
     );

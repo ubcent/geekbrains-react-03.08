@@ -1,0 +1,23 @@
+.page-content {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 60px;
+  margin-bottom: 51px;
+  min-height: calc(100vh - 101px);
+
+  .blog-entries {
+    text-align: center;
+    padding: 20px;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: grey;
+  }
+
+  .sidebar-widgets {
+    text-align: center;
+    padding: 20px;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: grey;
+  }
+}
