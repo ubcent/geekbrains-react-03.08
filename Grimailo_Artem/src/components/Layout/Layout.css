@@ -1,0 +1,14 @@
+html,
+body,
+#app {
+	height: 100%;
+}
+.wrapper{
+	min-height: 100%;
+}
+.my_container{
+	padding-bottom: 116px;
+}
+.content{
+	margin-top:10px;
+}
