@@ -10,4 +10,12 @@ export default class Content {
     { label: 'POSTS', href: '/posts' },
   ]
 
+  static categories = [
+    { tag: 'Web Design' },
+    { tag: 'HTML' },
+    { tag: 'JavaScript' },
+    { tag: 'CSS' },
+    { tag: 'Tutorials' },
+  ]
+
 }
