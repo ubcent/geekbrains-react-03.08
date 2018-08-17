@@ -1,4 +1,4 @@
-import './Login.css';
+import './Login.scss';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';

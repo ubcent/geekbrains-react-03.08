@@ -5,9 +5,9 @@ export default class Content {
   // можно конечно было использовать JSON и грузить с него?
   // в общем, надо смотреть как обычно люди делают :)
   static menu = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Posts', href: '/posts' },
+    { label: 'HOME', href: '/' },
+    { label: 'ABOUT', href: '/about' },
+    { label: 'POSTS', href: '/posts' },
   ]
 
 }

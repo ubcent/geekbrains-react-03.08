@@ -14,6 +14,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       components: path.resolve(__dirname, 'src', 'components'),
+      widgets: path.resolve(__dirname, 'src', 'components', 'widgets'),
       'old-components': path.resolve(__dirname, 'src', 'old-components'),
     },
   },
