@@ -1,3 +1,5 @@
+import './Footer.css';
+
 import React, {Component} from "react";
 
 import Wrapper from "../Wrapper";
@@ -7,7 +9,7 @@ export default class Footer extends Component {
         return (
             <footer className="footer">
                 <Wrapper>
-                    All right reserved
+                    <p> Copyright © React Blog 2018</p>
                 </Wrapper>
             </footer>
         )
