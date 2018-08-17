@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
+    "devbuild": "webpack --mode development",
     "dev": "webpack-dev-server --mode development",
     "devtool:component": "node cli/component.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +27,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",

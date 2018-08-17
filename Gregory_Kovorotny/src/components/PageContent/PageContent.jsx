@@ -8,6 +8,7 @@ import {
   Col,
 } from 'reactstrap';
 
+import Post from 'components/Post';
 import PostView from 'components/PostView';
 import Search from 'widgets/Search';
 import Categories from 'widgets/Categories';
@@ -22,6 +23,7 @@ export default class PageContent extends Component {
         <Container>
           <Row>
             <Col md="8" className="main-content">
+              <Post />
               <PostView />
             </Col>
             <Col md="4" className="sidebar-widgets">
