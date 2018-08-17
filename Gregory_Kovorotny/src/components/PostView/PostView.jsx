@@ -36,7 +36,7 @@ export default class PostView extends Component {
         <hr />
         <p>Posted on Jan 1, 2018 at 12:00 PM</p>
         <hr />
-        <img className="img-fluid rounded" src="./img/900x300.png" alt="post image 900x300" />
+        <img className="img-fluid rounded" src="http://placehold.it/900x300" alt="post image 900x300" />
         <hr />
         <p>
           Ullamco nisi culpa qui aute. Ut noster quo cillum, duis nostrud ex
