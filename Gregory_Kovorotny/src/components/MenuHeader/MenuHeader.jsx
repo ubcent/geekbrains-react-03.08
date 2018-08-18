@@ -32,7 +32,7 @@ export default class MenuHeader extends Component {
       <div className="menu-header">
         <Navbar expand fixed="top">
           <Container>
-            <NavbarBrand href="/">MY BLOG</NavbarBrand>
+            <NavbarBrand href="/">THE BLOG PLACE</NavbarBrand>
             <Nav className="lg-auto" navbar>
               {items.map((item) => <NavItem><NavLink href={item.href}>{item.label}</NavLink></NavItem>)}
               <NavItem><Login /></NavItem>

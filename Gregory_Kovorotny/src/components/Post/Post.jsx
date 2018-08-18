@@ -25,12 +25,10 @@ export default class Post extends Component {
           <CardBody>
             <CardTitle>Post Title</CardTitle>
             <CardText>
-              <p>
-                Eu fore familiaritatem ab aliquip labore appellat nescius ita elit senserit qui
-                quem minim ab ubi fugiat elit amet expetendis.
-              </p>
-              <a href="#"><Button color="primary">Read More ...</Button></a>
+              Eu fore familiaritatem ab aliquip labore appellat nescius ita elit senserit qui
+              quem minim ab ubi fugiat elit amet expetendis.
           </CardText>
+          <a href="#"><Button color="primary">Read More ...</Button></a>
           </CardBody>
           <CardFooter className="text-muted">
             Posted on January 1, 2018 by <a href="#">Blog Author</a>
