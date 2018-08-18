@@ -10,7 +10,7 @@ export default class Comment extends Component {
   };
 
   static defaultProps = {};
-  
+
   render() {
     const {author, message} = this.props;
   return(
@@ -19,5 +19,5 @@ export default class Comment extends Component {
       <div>{message}</div>
     </div>
     );
-  }  
+  }
 }
