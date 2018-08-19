@@ -1,7 +1,7 @@
-import './CommentsForm.scss';
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+
+import {Card,CardHeader,CardBody,Form,FormGroup} from 'reactstrap';
 
 export default class CommentsForm extends Component {
   static propTypes = {
@@ -27,27 +27,31 @@ export default class CommentsForm extends Component {
       }
       event.preventDefault();
 
-  }
-
-
+  };
 
   render() {
   const {author} = this.state;
 
   return(
-    <div className="CommentsForm">
-        <label>
-          Author:
-            <input onChange={this.handleChange} value={author} type="text" name="author"/>
-        </label><br/>
-
-        <label>
-          Message:<br/>
-            <textarea onChange={this.handleChange} name="message"/>
-        </label><br/>
-
-        <button onClick={this.handleSubmit}>Send</button>
-    </div>
+    <Card className="my-4">
+        <CardHeader tag="h5">Leave a Comment:</CardHeader>
+        <CardBody>
+            <Form>
+                <FormGroup>
+                    <label>
+                        Author:<br/>
+                        <input onChange={this.handleChange} value={author} type="text" name="author" className="form-control"/>
+                    </label>
+                    <br/>
+                    <label>
+                        Message:<br/>
+                        <textarea onChange={this.handleChange} name="message" className="form-control" rows="3" cols="100"/>
+                    </label><br/>
+                    <button onClick={this.handleSubmit} className="btn btn-primary">Submit</button>
+                </FormGroup>
+            </Form>
+        </CardBody>
+    </Card>
     );
   }  
 }

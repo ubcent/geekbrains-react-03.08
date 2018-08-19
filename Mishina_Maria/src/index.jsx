@@ -3,36 +3,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
 
-import Layout from './components/Layout';
-import NavBar from './components/NavBar';
-
-import CommentsList from 'components/CommentsList';
-import CommentsForm from 'components/CommentsForm';
+import Layout from 'components/Layout';
+import NavBar from 'components/NavBar';
+import Footer from 'components/Footer';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            comments: [],
-        }
-    }
-    handleSubmit = (comment) => {
-        const {comments} = this.state;
-
-        this.setState({
-            comments: comments.concat([comment]),
-        })
-    };
     render() {
-        const {comments} = this.state;
 
         return(
             <Fragment>
-                <CommentsList comments={comments}/>
-                <CommentsForm onSubmit={this.handleSubmit}/>
                 <NavBar/>
                 <Layout/>
+                <Footer/>
             </Fragment>
         )
     }

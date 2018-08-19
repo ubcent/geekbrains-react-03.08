@@ -1,6 +1,4 @@
-import './Comment.scss';
-
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 export default class Comment extends Component {
@@ -9,15 +7,13 @@ export default class Comment extends Component {
       message:PropTypes.string.isRequired,
   };
 
-  static defaultProps = {};
-
   render() {
     const {author, message} = this.props;
   return(
-    <div className="Comment">
-      <h4>{author}</h4>
+    <Fragment>
+      <h5 className="mt-0">{author}</h5>
       <div>{message}</div>
-    </div>
+    </Fragment>
     );
   }
 }
