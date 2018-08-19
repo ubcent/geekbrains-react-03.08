@@ -13,25 +13,32 @@ import {
 } from 'reactstrap';
 
 export default class Post extends Component {
-  static propTypes = {}
-
-  static defaultProps = {}
+  static propTypes = {
+    id: PropTypes.number.isRequired,
+    imgUrl: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    date: PropTypes.instanceOf(Date).isRequired,
+    author: PropTypes.string.isRequired,
+  }
 
   render() {
+    const { id, imgUrl, title, body, date, author } = this.props;
+    const postUrl = '#/post/' + id;
+
     return (
       <div className="post">
         <Card>
-          <CardImg top width="100%" src="http://placehold.it/750x300.png" alt="post img 750x300" />
+          <CardImg top width="100%" src={imgUrl} alt="post img 750x300" />
           <CardBody>
-            <CardTitle>Post Title</CardTitle>
+            <CardTitle>{title}</CardTitle>
             <CardText>
-              Eu fore familiaritatem ab aliquip labore appellat nescius ita elit senserit qui
-              quem minim ab ubi fugiat elit amet expetendis.
+              {body}
           </CardText>
-          <a href="#"><Button color="primary">Read More ...</Button></a>
+          <a href={postUrl}><Button color="primary">Read More ...</Button></a>
           </CardBody>
           <CardFooter className="text-muted">
-            Posted on January 1, 2018 by <a href="#">Blog Author</a>
+            Posted on {date.toISOString()} by <a href="#">{author}</a>
           </CardFooter>
         </Card>
       </div>

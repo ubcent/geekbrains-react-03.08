@@ -4,8 +4,8 @@ import { shallow, configure } from 'enzyme';
 
 configure({ adapter: new Adapter() });
 
-import CommentsList from './CommentsList';
+import About from './About';
 
-test('CommentsList should ...', () => {
+test('About should ...', () => {
 
 });

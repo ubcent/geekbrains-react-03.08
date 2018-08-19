@@ -15,6 +15,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       components: path.resolve(__dirname, 'src', 'components'),
+      containers: path.resolve(__dirname, 'src', 'containers'),
       widgets: path.resolve(__dirname, 'src', 'components', 'widgets'),
       'old-components': path.resolve(__dirname, 'src', 'old-components'),
     },
@@ -43,6 +44,6 @@ module.exports = {
       template: path.resolve(__dirname, 'src', 'index.html'),
       filename: 'index.html',
     }),
-    new CopyWebpackPlugin([{ from: path.resolve(__dirname, 'src', 'img'), to: path.resolve(__dirname, 'dist', 'img') }]),
+    new CopyWebpackPlugin([{ from: path.resolve(__dirname, 'src', 'static'), to: path.resolve(__dirname, 'dist', 'static') }]),
   ]
 }

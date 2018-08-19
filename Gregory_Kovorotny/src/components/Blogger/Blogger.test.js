@@ -4,8 +4,8 @@ import { shallow, configure } from 'enzyme';
 
 configure({ adapter: new Adapter() });
 
-import CommentForm from './CommentForm';
+import Blogger from './Blogger';
 
-test('CommentForm should ...', () => {
+test('Blogger should ...', () => {
 
 });

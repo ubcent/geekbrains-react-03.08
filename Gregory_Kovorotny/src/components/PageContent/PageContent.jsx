@@ -8,10 +8,14 @@ import {
   Col,
 } from 'reactstrap';
 
+import About from 'components/About';
 import Post from 'components/Post';
-import PostView from 'components/PostView';
+import PostViewContainer from 'containers/PostViewContainer';
 import Search from 'widgets/Search';
 import Categories from 'widgets/Categories';
+import PostsListContainer from 'containers/PostsListContainer';
+import BloggersListContainer from 'containers/BloggersListContainer';
+import CommentsListContainer from 'containers/CommentsListContainer';
 
 import Content from '../../Content';
 
@@ -21,35 +25,49 @@ export default class PageContent extends Component {
     super(props);
 
     this.state = {
-      route: window.location.hash.substr(1),
+      routeAction: window.location.hash.substr(1).split('/')[1],
+      routeId: window.location.hash.substr(1).split('/')[2],
     }
   }
 
   componentDidMount() {
+    console.log(window.location.hash.substr(1).split('/'));
     window.addEventListener('hashchange', () => {
-      this.setState({ route: window.location.hash.substr(1) })
+      this.setState({
+        routeAction: window.location.hash.substr(1).split('/')[1],
+        routeId: window.location.hash.substr(1).split('/')[2],
+      })
     });
   }
 
   render() {
     let MainContent;
-    switch(this.state.route) {
-      case '/posts':
-        MainContent = Post; // заменим на PostsList
+    let postId;
+
+    switch(this.state.routeAction) {
+      case 'post':
+        MainContent = PostViewContainer;
+        postId = this.state.routeId;
         break;
-      case '/bloggers':
-        MainContent = Post; // заменим на BloggersList
+      case 'posts':
+        MainContent = PostsListContainer; // TODO - props надо указать параметры фильтра... чтобы был универсальным
         break;
+      case 'bloggers':
+        MainContent = BloggersListContainer;
+        break;
+      case 'comments':
+        MainContent = CommentsListContainer; // TODO подумать нельзя ли один и тот же компонент использовать с PostView ??
+        break;                               // тоже будет получать фильтр. либо id поста, либо id пользователя, либо все подряд ??
       default:
-        MainContent = PostView; // заменим на About
+        MainContent = About;
     }
 
-    return (
+    return ( // вот тут в строке 58 - postId мне не всегда нужен (а только для PostViewContainer. как бы избежать его передачи всегда?)
       <div className="page-content">
         <Container>
           <Row>
             <Col md="8" className="main-content">
-              <MainContent />
+              <MainContent postId={postId}/>
             </Col>
             <Col md="4" className="sidebar-widgets">
               <Search />

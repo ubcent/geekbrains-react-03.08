@@ -1,4 +1,4 @@
-import './CommentForm.scss';
+import './PostCommentForm.scss';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -9,8 +9,9 @@ import {
   Button,
 } from 'reactstrap';
 
-export default class CommentForm extends Component {
+export default class PostCommentForm extends Component {
   static propTypes = {
+    postId: PropTypes.number.isRequired,
     onSubmit: PropTypes.func.isRequired,
   }
 
@@ -20,6 +21,7 @@ export default class CommentForm extends Component {
     this.state = {
       author: '',
       message: '',
+      postId: this.props.postId,
     }
   }
 

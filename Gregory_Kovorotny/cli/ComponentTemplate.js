@@ -1,4 +1,4 @@
-var ComponentTemplate = function() {
+const ComponentTemplate = function() {
 
   this.jsx = function(name) {
     return (
@@ -19,6 +19,30 @@ export default class ${name} extends Component {
     );
   }
 }
+`);
+  }
+
+  this.jsxs = function(name) {
+    return (
+`import './${name}.scss';
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+const ${name} = (props) => {
+  const {} = props;
+  
+  return (
+    <div className="${name.split(/(?=[A-Z])/).reduce((className, word, i) => className + '-' + word).toLowerCase()}">
+    </div>
+  );
+}
+
+${name}.propTypes = {}
+
+${name}.defaultProps = {}
+
+export default ${name};
 `);
   }
 

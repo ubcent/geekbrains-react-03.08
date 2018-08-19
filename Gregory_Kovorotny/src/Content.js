@@ -6,8 +6,9 @@ export default class Content {
   // в общем, надо смотреть как обычно люди делают :)
   static menu = [
     { label: 'POSTS', href: '#/posts' },
-    { label: 'ABOUT', href: '#/' },
     { label: 'BLOGGERS', href: '#/bloggers' },
+    { label: 'COMMENTS', href: '#/comments' },
+    { label: 'ABOUT', href: '#/' },
   ]
 
   static categories = [

@@ -1,11 +1,11 @@
-import './CommentsList.scss';
+import './PostCommentsList.scss';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Comment from 'components/Comment';
+import PostComment from 'components/PostComment';
 
-export default class CommentsList extends Component {
+export default class PostCommentsList extends Component {
   static propTypes = {
     comments: PropTypes.arrayOf(
       PropTypes.shape({
@@ -20,11 +20,11 @@ export default class CommentsList extends Component {
     comments: [],
   }
 
-  render() { // TODO - сделать пагинацию
+  render() {
     const { comments } = this.props;
     return (
-      <ul className="comments-list">
-        {comments.map((comment) => <li><Comment {...comment} /></li>)}
+      <ul className="post-comments-list">
+        {comments.map((comment) => <li><PostComment {...comment} /></li>)}
       </ul>
     );
   }

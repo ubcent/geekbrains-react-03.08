@@ -16,7 +16,7 @@ export default class Footer extends Component {
     return (
       <footer className="footer text-center">
         <Container>
-          <p>Copyright My Blog 2018</p>
+          <p>Copyright The Blog Place 2018</p>
         </Container>
       </footer>
     );
