@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.css';
+
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -6,14 +8,16 @@ import Layout from './components/Layout';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
 import CommentsForm from 'components/CommentsForm';
-import CommentsList from 'components/CommentsList';
+import CommentsListContainer from 'containers/CommentsListContainer';
 
 const menuItems = [
   {
+    id: 0,
     label: 'Home',
     href: '/'
   },
   {
+    id: 1,
     label: 'News',
     href: '/news'
   },
@@ -21,10 +25,12 @@ const menuItems = [
 
 const sidebarItems = [
   {
+    id: 0,
     label: 'All articles',
     href: '/all'
   },
   {
+    id: 1,
     label: 'New articles',
     href: '/new'
   },
@@ -32,10 +38,12 @@ const sidebarItems = [
 
 const articles = [
   {
+    id: 0,
     label: 'All articles',
     href: '/all'
   },
   {
+    id: 1,
     label: 'New articles',
     href: '/new'
   },
@@ -68,7 +76,7 @@ class App extends Component {
             <Menu size="big" items={menuItems}></Menu>
             <Sidebar items={sidebarItems}/>
             <Content articles={articles}>
-              <CommentsList comments={comments} />
+              <CommentsListContainer comments={comments} />
               <CommentsForm onSubmit={this.handleSubmit} />
             </Content>
         </Layout>
