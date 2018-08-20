@@ -8,14 +8,18 @@ import {
   Col,
 } from 'reactstrap';
 
+import Page404 from 'components/Page404';
 import About from 'components/About';
 import Post from 'components/Post';
 import PostViewContainer from 'containers/PostViewContainer';
 import Search from 'widgets/Search';
 import Categories from 'widgets/Categories';
 import PostsListContainer from 'containers/PostsListContainer';
+import BloggerViewContainer from 'containers/BloggerViewContainer';
 import BloggersListContainer from 'containers/BloggersListContainer';
 import CommentsListContainer from 'containers/CommentsListContainer';
+
+
 
 import Content from '../../Content';
 
@@ -42,29 +46,38 @@ export default class PageContent extends Component {
 
   render() {
     let MainContent;
-    let filterId;
+    let filterId = this.state.routeId;
+    let page404 = false;
 
     switch(this.state.routeAction) {
       case 'post':
         MainContent = PostViewContainer;
-        filterId = this.state.routeId; // postId
+        page404 = (typeof filterId === 'undefined' || isNaN(filterId) || filterId ===''); // postId
+        break;
+      case 'blogger':
+        MainContent = BloggerViewContainer;
+        page404 = (typeof filterId === 'undefined' || isNaN(filterId) || filterId ===''); // userId
         break;
       case 'posts':
         MainContent = PostsListContainer;
-        filterId = this.state.routeId; // userId
+        page404 = (typeof filterId !== 'undefined' && isNaN(filterId)); // userId
         break;
       case 'bloggers':
         MainContent = BloggersListContainer;
         break;
       case 'comments':
         MainContent = CommentsListContainer; // TODO подумать нельзя ли один и тот же компонент использовать с PostView ??
-        filterId = this.state.routeId; // userId
+        page404 = (typeof filterId !== 'undefined' && isNaN(filterId)); // userId
         break;
       default:
         MainContent = About;
     }
 
-    console.log(filterId);
+    if (page404) {
+      MainContent = Page404;
+    } else {
+      filterId = Number(filterId);
+    }
 
     return ( // вот тут в строке 72 - postId мне не всегда нужен (а только для PostViewContainer. как бы избежать его передачи всегда?)
       <div className="page-content">

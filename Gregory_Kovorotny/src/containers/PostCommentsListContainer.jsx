@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import PostCommentsList from 'components/PostCommentsList';
 import PostCommentForm from 'components/PostCommentForm';
@@ -7,7 +8,7 @@ export default class PostCommentsListContainer extends Component {
   static propTypes = {
     postId: PropTypes.number.isRequired,
   }
-  
+
   constructor(props) {
     super(props);
 

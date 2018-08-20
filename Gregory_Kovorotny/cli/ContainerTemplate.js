@@ -3,6 +3,7 @@ const ContainerTemplate = function() {
   this.jsx = function(name) {
     return (
 `import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import ${name} from 'components/${name}';
 

@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 
 const Comment = (props) => {
   const { author, message, id, postId } = props;
+  const postUrl = '#/post/' + postId;
 
   return (
     <div className="comment">
       <h4>{author}</h4>
-      <h5>Comment Id: {id} - Post Id: {postId}</h5>
+      <h5>Comment Id: {id} - <a href={postUrl}>Post Id: {postId}</a></h5>
       <div>{message}</div>
     </div>
   );

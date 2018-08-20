@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import PostsList from 'components/PostsList';
 
@@ -6,7 +7,7 @@ export default class PostsListContainer extends Component {
   static propTypes = {
     filterId: PropTypes.number,
   }
-  
+
   constructor(props) {
     super(props);
 
