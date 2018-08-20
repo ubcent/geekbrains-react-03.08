@@ -13,13 +13,29 @@ export default class CommentsListContainer extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://jsonplaceholder.typicode.com/comments?_limit=30`) // TODO добавить фильтрацию на основе Array comments[] - передаем в props
+    const userId = this.props.filterId;
+    fetch(`https://jsonplaceholder.typicode.com/comments`) // если бы делали запрос в БД - то понятно фильтр был бы на стороне БД!
       .then((response) => response.json())
       .then((comments) => {
-        this.setState({
-          loading: false,
-          comments: comments.map((comment) => ({ id: comment.id, author: comment.name, message: comment.body, postId: comment.postId })),
-        })
+        if (userId) {
+          fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+            .then((response) => response.json())
+            .then((posts) => {
+              const userPostsIds = posts.map((post) => post.id)
+              console.log(userPostsIds);
+              this.setState({
+                loading: false,
+                comments: comments.filter((comment) => (userPostsIds.includes(comment.postId)))
+                  .map((comment) => ({ id: comment.id, author: comment.name, message: comment.body, postId: comment.postId })),
+              })
+            });
+        } else {
+          this.setState({
+            loading: false,
+            comments: comments.filter((comment) => (comment.postId < 15))
+              .map((comment) => ({ id: comment.id, author: comment.name, message: comment.body, postId: comment.postId })),
+          })
+        }
       });
   }
 

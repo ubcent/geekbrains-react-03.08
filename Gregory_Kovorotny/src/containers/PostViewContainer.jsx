@@ -13,7 +13,7 @@ export default class PostViewContainer extends Component {
   }
 
   componentDidMount() {
-    const { postId } = this.props;
+    const postId = this.props.filterId;
 
     fetch(`https://jsonplaceholder.typicode.com/posts?id=${postId}`)
       .then((response) => response.json())

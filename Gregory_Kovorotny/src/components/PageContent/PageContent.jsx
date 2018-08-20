@@ -42,32 +42,36 @@ export default class PageContent extends Component {
 
   render() {
     let MainContent;
-    let postId;
+    let filterId;
 
     switch(this.state.routeAction) {
       case 'post':
         MainContent = PostViewContainer;
-        postId = this.state.routeId;
+        filterId = this.state.routeId; // postId
         break;
       case 'posts':
-        MainContent = PostsListContainer; // TODO - props надо указать параметры фильтра... чтобы был универсальным
+        MainContent = PostsListContainer;
+        filterId = this.state.routeId; // userId
         break;
       case 'bloggers':
         MainContent = BloggersListContainer;
         break;
       case 'comments':
         MainContent = CommentsListContainer; // TODO подумать нельзя ли один и тот же компонент использовать с PostView ??
-        break;                               // тоже будет получать фильтр. либо id поста, либо id пользователя, либо все подряд ??
+        filterId = this.state.routeId; // userId
+        break;
       default:
         MainContent = About;
     }
 
-    return ( // вот тут в строке 58 - postId мне не всегда нужен (а только для PostViewContainer. как бы избежать его передачи всегда?)
+    console.log(filterId);
+
+    return ( // вот тут в строке 72 - postId мне не всегда нужен (а только для PostViewContainer. как бы избежать его передачи всегда?)
       <div className="page-content">
         <Container>
           <Row>
             <Col md="8" className="main-content">
-              <MainContent postId={postId}/>
+              <MainContent filterId={filterId}/>
             </Col>
             <Col md="4" className="sidebar-widgets">
               <Search />

@@ -22,8 +22,8 @@ export default class BloggersListContainer extends Component {
             id: blogger.id,
             name: blogger.name,
             username: blogger.username,
-            posts: Array(8 - blogger.id).fill(0).map((item, idx) => blogger.id * 10 + idx),
-            comments: Array(blogger.id - 1).fill(0).map((item, idx) => blogger.id * 10 + idx),
+            posts: Array(8 - blogger.id).fill(0).map((item, idx) => blogger.id * 10 + idx), // смоделировал для теста, на самом деле там у всех равное число
+            comments: Array(blogger.id - 1).fill(0).map((item, idx) => blogger.id * 10 + idx), // постов и комментов, если брать по API
           })),
         })
       });

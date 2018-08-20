@@ -13,7 +13,12 @@ export default class PostsListContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
+    const userId = this.props.filterId;
+    let fetchUrl = 'https://jsonplaceholder.typicode.com/posts?_limit=15';
+    if (userId) {
+      fetchUrl = `https://jsonplaceholder.typicode.com/posts?userId=${userId}`;
+    }
+    fetch(fetchUrl)
       .then((response) => response.json())
       .then((posts) => {
         this.setState({
