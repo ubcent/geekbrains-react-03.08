@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import PostsList from 'components/PostsList';
 
 export default class PostsListContainer extends Component {
+  static propTypes = {
+    filterId: PropTypes.number,
+  }
+  
   constructor(props) {
     super(props);
 

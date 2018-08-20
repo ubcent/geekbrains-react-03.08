@@ -3,6 +3,10 @@ import React, { Component, Fragment } from 'react';
 import CommentsList from 'components/CommentsList';
 
 export default class CommentsListContainer extends Component {
+  static propTypes = {
+    filterId: PropTypes.number,
+  }
+
   constructor(props) {
     super(props);
 

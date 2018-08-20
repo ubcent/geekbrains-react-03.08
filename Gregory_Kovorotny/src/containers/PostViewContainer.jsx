@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import PostView from 'components/PostView';
 
 export default class PostViewContainer extends Component {
+  static propTypes = {
+    filterId: PropTypes.number.isRequired,
+  }
+  
   constructor(props) {
     super(props);
 
