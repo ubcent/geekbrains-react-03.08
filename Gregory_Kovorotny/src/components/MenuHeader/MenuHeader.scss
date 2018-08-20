@@ -5,7 +5,6 @@
     z-index: 9999;
     border: 0;
     font-size: 20px;
-    letter-spacing: 2px;
     line-height: 1.4;
   }
 
@@ -13,11 +12,8 @@
     font-weight: 600;
   }
 
-  .navbar a {
-    color: #fff;
-  }
 
-  .navbar-nav a:hover {
+  .navbar-dark .navbar-nav a:hover {
     background-color: #fff;
     color: #4682B4;
   }
@@ -26,4 +22,9 @@
     margin-left: 10px;
     margin-right: 10px;
   }
+
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+  }
+
 }
