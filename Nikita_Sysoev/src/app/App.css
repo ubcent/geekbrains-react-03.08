@@ -1,0 +1,143 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.active {
+    display: block;
+}
+
+.noactive {
+    display: none;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg {
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    }
+}
+
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+.navbar-dark, .navbar-brand:focus, .navbar-brand:hover {
+    color: #fff;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.cursor:after {
+    background-color: #23527c;
+    display: block;
+    content: "";
+    height: 3px;
+    width: 0;
+    -webkit-transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+}
+
+.cursor:hover:after,
+.cursor:focus:after {
+    width: 100%;
+}
+
+div.masthead {
+    background: no-repeat center center;
+    background-color: #868e96;
+    background-attachment: scroll;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #212529;
+    opacity: .5;
+}
+
+.site-heading {
+    text-align: center;
+    color: #fff;
+}
+
+.subheading {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.1;
+    display: block;
+    margin: 10px 0 0;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media only screen and (min-width: 768px) {
+    .masthead .site-heading {
+        padding: 200px 0;
+    }
+}
+
+a, a:focus {
+    color: initial;
+}

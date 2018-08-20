@@ -1,6 +1,6 @@
 import './CommentsForm.scss';
 
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Panel} from 'react-bootstrap';
 import {Form, FormGroup, Input, Button} from 'reactstrap';
@@ -25,7 +25,7 @@ export default class CommentsForm extends Component {
     };
 
     onSubmit = () => {
-        event.preventDefault();
+        // event.preventDefault();
         const {onSubmit} = this.props;
         onSubmit(this.state);
     };

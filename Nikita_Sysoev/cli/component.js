@@ -12,7 +12,7 @@ fs.writeFileSync(
     path.resolve(__dirname, '..', 'src', 'components', name, `${name}.jsx`),
     `import './${name}.scss';
 
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 export default class ${name} extends Component {

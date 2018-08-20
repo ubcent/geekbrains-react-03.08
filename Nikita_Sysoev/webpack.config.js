@@ -36,6 +36,7 @@ module.exports = {
       extensions: ['.js', '.jsx'],
         // alias: {
         //   components: path.resolve(__dirname, 'src', 'components')
+        // containers: path.resolve(__dirname, 'src', 'containers')
         // },
     },
     plugins: [
