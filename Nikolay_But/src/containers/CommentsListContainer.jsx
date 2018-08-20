@@ -25,6 +25,7 @@ export default class CommentsListContainer extends PureComponent {
 
   render() {
     const { comments, loading } = this.state;
+
     return (
       loading ? 'Loading' : <CommentList comments={comments} />
     )

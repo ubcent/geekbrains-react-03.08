@@ -9,6 +9,8 @@ import Sidebar from './components/Sidebar';
 import Content from './components/Content';
 import CommentsForm from 'components/CommentsForm';
 import CommentsListContainer from 'containers/CommentsListContainer';
+import BlogsContainer from 'containers/BlogsContainer';
+import UsersContainer from 'containers/UsersContainer';
 
 const menuItems = [
   {
@@ -18,8 +20,13 @@ const menuItems = [
   },
   {
     id: 1,
-    label: 'News',
-    href: '/news'
+    label: 'Blogs',
+    href: '/blogs'
+  },
+  {
+    id: 2,
+    label: 'Users',
+    href: '/users'
   },
 ];
 
@@ -55,11 +62,13 @@ class App extends Component {
 
     this.state = {
       comments: [],
+      blogs: [],
+      users: [],
     }
   }
 
   handleSubmit = (comment) => {
-    const { comments } = this.state;
+    const { comments, blogs, users } = this.state;
 
     this.setState({
       comments: comments.concat([comment]),
@@ -68,17 +77,19 @@ class App extends Component {
   }
 
   render() {
-    const { comments } = this.state;
+    const { comments, blogs, users } = this.state;
 
     return (
       <Fragment>
         <Layout className="layout row">
-            <Menu size="big" items={menuItems}></Menu>
-            <Sidebar items={sidebarItems}/>
-            <Content articles={articles}>
-              <CommentsListContainer comments={comments} />
-              <CommentsForm onSubmit={this.handleSubmit} />
-            </Content>
+          <Menu size="big" items={menuItems}></Menu>
+          <Sidebar items={sidebarItems} />
+          <Content articles={articles}>
+            <CommentsListContainer comments={comments} />
+            <CommentsForm onSubmit={this.handleSubmit} />
+            <UsersContainer users={users} />
+            <BlogsContainer blogs={blogs} />
+          </Content>
         </Layout>
       </Fragment>
     )
