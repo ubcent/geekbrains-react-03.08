@@ -2,7 +2,9 @@ import './Layout.css';
 
 import React, { Component, Fragment } from 'react';
 
-import Menu from '../Menu';
+import HeaderMenu from 'components/HeaderMenu';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
 
 const menuItems = [
   {
@@ -18,6 +20,10 @@ const menuItems = [
     href: '/contact'
   }
 ];
+const headerText = {
+  title: 'Clean Blog',
+  description: 'A Blog Theme by Start Bootstrap',
+};
 
 export default class Layout extends Component{
   render(){
@@ -26,7 +32,8 @@ export default class Layout extends Component{
     return(
       <Fragment>
         <div className="wrapper">
-      <Menu navType="header" items={menuItems} />
+      <HeaderMenu items={menuItems} />
+      <Header headerText={headerText}/>
 
           <div className="content">
           {children}
@@ -34,7 +41,7 @@ export default class Layout extends Component{
 
         </div>
 
-      <Menu navType="footer" items={menuItems} />
+      <Footer/>
       </Fragment>
     );
   }

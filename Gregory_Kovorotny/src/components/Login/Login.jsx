@@ -1,4 +1,4 @@
-import './Login.css';
+import './Login.scss';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
@@ -38,7 +38,12 @@ export default class Login extends Component {
   handleLogin = () => {
     const { userLogin, userPassword } = this.state;
     if (userLogin === 'user' && userPassword === '1234') {
-      this.setState({ userLoginError: false, userPasswordError: false });
+      this.setState({
+        userLoginError: false,
+        userPasswordError: false,
+        userLogin: '',
+        userPassword: '',
+      });
       this.toggle();
     } else {
       this.setState({ userLoginError: true, userPasswordError: true });
@@ -66,7 +71,7 @@ export default class Login extends Component {
                 <FormGroup>
                   <Label for="userLogin">Login</Label>
                   <Input
-                    id="userLogin" type="text" name="userLogin" placeholder="Your login"
+                    id="userLogin" type="text" name="userLogin" placeholder="Your login" value={this.state.userLogin}
                     autoFocus
                     invalid={this.state.userLoginError}
                     onChange={this.handleChange}
@@ -76,7 +81,7 @@ export default class Login extends Component {
                 <FormGroup>
                   <Label for="userPassword">Password</Label>
                   <Input
-                    id="userPassword" type="password" name="userPassword" placeholder="Your password"
+                    id="userPassword" type="password" name="userPassword" placeholder="Your password" value={this.state.userPassword}
                     invalid={this.state.userPasswordError}
                     onChange={this.handleChange}
                   />
