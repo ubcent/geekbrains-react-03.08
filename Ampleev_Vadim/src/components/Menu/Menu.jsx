@@ -24,7 +24,7 @@ export default class Menu extends Component {
             'menu-small': size === 'small'
         });
         return(
-            <ul className={className}>{items.map((item) => <li><a href={item.href}>{item.label}</a></li>)}</ul>
+            <ul className={className}>{items.map((item, i) => <li key={i}><a href={item.href}>{item.label}</a></li>)}</ul>
         );
     }
 }

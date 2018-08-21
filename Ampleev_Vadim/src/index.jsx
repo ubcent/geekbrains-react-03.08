@@ -1,26 +1,21 @@
+import 'bootstrap/dist/css/bootstrap.css';
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import Menu from './components/Menu';
 import Wrapper from './components/Wrapper';
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
-const menuItems = [
-    {
-        label: 'Home',
-        href: '/'
-    },
-    {
-        label: 'News',
-        href: '/news'
-    }
-]
 class App extends Component {
     render() {
         return (
             <div>
                 <Wrapper>
-                    <div>Hello world!</div>
-                    <Menu size="big"/>
+                    <Header/>
+                    <Main/>
+                    <Footer/>
                 </Wrapper>
             </div>
         )
