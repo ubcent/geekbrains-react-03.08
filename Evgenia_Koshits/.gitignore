@@ -63,4 +63,6 @@ typings/
 # webpack build output - dist directory
 dist
 
-.DS_Storegit
+.DS_Store
+
+/src/.DS_Store
