@@ -6,6 +6,11 @@ import PostsList from 'components/PostsList';
 export default class PostsListContainer extends Component {
   static propTypes = {
     filterId: PropTypes.number,
+    count: PropTypes.number,
+  }
+
+  static defaultProps = {
+    count: 3,
   }
 
   constructor(props) {
@@ -14,37 +19,67 @@ export default class PostsListContainer extends Component {
     this.state = {
       loading: true,
       posts: [],
+      page: 1,
+      reachEnd: false,
+    }
+  }
+
+  // чрезмерно кажется навороченным. TODO - надо подумать
+  loadPosts(direction = 0) {
+    const userId = this.props.filterId;
+    const count = this.props.count;
+    const start = this.state.page * count - 1;
+    let newPage = this.state.page;
+    if (direction === 1 && !this.state.reachEnd) {
+      newPage++;
+    } else if (direction === -1 && this.state.page !== 1) {
+      newPage--;
+    }
+
+    if (newPage !== this.state.page || direction === 0) {
+      let fetchUrl = `https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=${count}`;
+      if (userId) {
+        fetchUrl = `https://jsonplaceholder.typicode.com/posts?userId=${userId}&_start=${start}&_limit=${count}`;
+      }
+      fetch(fetchUrl)
+        .then((response) => response.json())
+        .then((posts) => {
+          this.setState({
+            loading: false,
+            posts: posts.map((post) => ({
+              id: post.id,
+              title: post.title,
+              body: post.body,
+              imgUrl: 'http://placehold.it/750x300.png', // пока заглушка дефолтная
+              date: new Date, // пока заглушка дефолтная
+              author: 'Blogger X', // пока заглушка дефолтная
+            })),
+            page: newPage,
+            reachEnd: (posts.length < count),
+          })
+        });
     }
   }
 
   componentDidMount() {
-    const userId = this.props.filterId;
-    let fetchUrl = 'https://jsonplaceholder.typicode.com/posts?_limit=15';
-    if (userId) {
-      fetchUrl = `https://jsonplaceholder.typicode.com/posts?userId=${userId}`;
+    this.loadPosts();
+  }
+
+  // а где вообще такие константы (DIRECTION например) определять??
+  handleLoadPosts = (direction) => {
+    const DIRECTION = {
+      prev: -1,
+      next: +1,
     }
-    fetch(fetchUrl)
-      .then((response) => response.json())
-      .then((posts) => {
-        this.setState({
-          loading: false,
-          posts: posts.map((post) => ({
-            id: post.id,
-            title: post.title,
-            body: post.body,
-            imgUrl: 'http://placehold.it/750x300.png', // пока заглушка дефолтная
-            date: new Date, // пока заглушка дефолтная
-            author: 'Blogger X', // пока заглушка дефолтная
-          })),
-        })
-      });
+    this.loadPosts(DIRECTION[direction]);
   }
 
   render() {
-    const { loading, posts } = this.state;
+    const { loading, posts, page } = this.state;
+    console.log(this.state);
 
     return (
-      loading ? 'loading' : <PostsList posts={posts} />
+      loading ? 'loading' : <PostsList onLoadPosts={this.handleLoadPosts} posts={posts} />
     );
   }
 }
