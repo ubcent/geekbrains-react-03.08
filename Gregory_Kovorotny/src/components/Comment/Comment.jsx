@@ -3,7 +3,7 @@ import './Comment.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Comment = (props) => {
+const Comment = function(props) {
   const { author, message, id, postId } = props;
   const postUrl = '#/post/' + postId;
 

@@ -3,7 +3,7 @@ import './Page404.scss';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const Page404 = (props) => {
+const Page404 = function(props) {
   const {} = props;
 
   return (

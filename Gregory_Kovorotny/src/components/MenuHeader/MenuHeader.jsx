@@ -35,9 +35,15 @@ export default class MenuHeader extends Component {
     }
   }
 
-  toggle = () => {
+  toggleMenu = () => {
     this.setState({
       isOpen: !this.state.isOpen,
+    });
+  }
+
+  closeMenu = () => {
+    this.setState({
+      isOpen: false,
     });
   }
 
@@ -49,11 +55,11 @@ export default class MenuHeader extends Component {
         <Navbar expand="md" fixed="top" dark>
           <Container>
             <NavbarBrand href="/">THE BLOG PLACE</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
+            <NavbarToggler onClick={this.toggleMenu} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                {items.map((item) => <NavItem><NavLink href={item.href}>{item.label}</NavLink></NavItem>)}
-                <NavItem><Login /></NavItem>
+                {items.map((item) => <NavItem><NavLink onClick={this.closeMenu} href={item.href}>{item.label}</NavLink></NavItem>)}
+                <NavItem onClick={this.closeMenu}><Login /></NavItem>
               </Nav>
             </Collapse>
           </Container>
