@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,Fragment} from 'react';
 import {
     Collapse,
     Navbar,
@@ -7,11 +7,7 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    Button} from 'reactstrap';
+    Container} from 'reactstrap';
 
 export default class NavBar extends Component {
     constructor(props) {
@@ -29,41 +25,31 @@ export default class NavBar extends Component {
     }
     render() {
         return (
-            <div>
-                <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">DZ3</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink href="/components/">Components</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                            </NavItem>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
-                                    Options
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                        Option 1
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Option 2
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        Reset
-                                    </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
-                        </Nav>
-                    </Collapse>
-                    <Button color="info">LOGIN</Button>{' '}
+            <Fragment>
+                <Navbar color="dark" dark expand="lg">
+                    <Container>
+                        <NavbarBrand href="#">Start Bootstrap</NavbarBrand>
+                        <NavbarToggler onClick={this.toggle}  data-toggle="collapse" data-target="#navbarResponsive"
+                                       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"/>
+                        <Collapse isOpen={this.state.isOpen} navbar id="navbarResponsive">
+                            <Nav className="ml-auto" navbar>
+                                <NavItem active>
+                                    <NavLink href="#">Home</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#">About</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#">Services</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#">Contact</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
+                    </Container>
                 </Navbar>
-
-            </div>
+            </Fragment>
         );
     }
 }
