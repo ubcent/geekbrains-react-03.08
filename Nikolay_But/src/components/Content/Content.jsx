@@ -16,10 +16,10 @@ export default class Content extends Component {
   }
 
   render() {
-    const { items } = this.props;
+    const { children } = this.props;
 
     return (
-      <div className="content"><div className="">Article 1</div><div className="">Article 2</div></div>
+      <div className="content">{children}</div>
     );
   }
 }
