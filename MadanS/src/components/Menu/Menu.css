@@ -1,18 +1,8 @@
-#header {
+#menu{
     background-color: grey;
-}
-.menu {
-    position:relative;
-    width: 500px;
-      display: flex;
-    list-style-type: none;
-    /* задано чтобы центрировать */
-    margin: 0 0 0 auto;
-    /* задано чтобы центрировать */
-    padding-top: 18px;
+   height: 100px;
 }
 .menu a {
-    color: snow;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
@@ -23,16 +13,18 @@
     text-align: left;
     align-items: center;
     margin: 0 10px;
+    color: white;
 
 }
-.menu a:hover {
-    padding-bottom: 3px;
-    border-bottom: 1px solid white;
-    color: white;
-}
-.menu > li {
-    position: relative;
-    text-align: right;
+.menu {
+
+display: flex;
+    list-style-type: none;
+
+    /* задано чтобы центрировать */
+    margin: 0 auto;
+    /* задано чтобы центрировать */
+
 }
 
 .menu-big li a {

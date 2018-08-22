@@ -1,33 +1,32 @@
 import './Menu.css';
 
-import React, {Component} from 'react';
-
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 export default class Menu extends Component {
+    static propTypes = {
+        items: PropTypes.arrayOf(
+            PropTypes.shape({ href: PropTypes.string, label: PropTypes.string })
+        ),
+        size: PropTypes.oneOf(['big', 'small']),
+    };
 
-    render (){
-    const { items, size } = this.props;
-    const className = classNames('menu', {
-        'menu-big' : size === 'big',
-        'menu-small' : size === 'small',
-    });
-/* добавила ключ, но ошибка в консоли об отсутствии ключа все равно есть????*/
+    static defaultProps = {
+        size: 'small',
+        items: []
+    };
+
+    render() {
+        const { items, size } = this.props;
+
+        const className = classNames('menu', {
+            'menu-big': size === 'big',
+            'menu-small': size === 'small',
+        });
+
         return (
-
-            <ul className={className}>{items.map( (item, index) =>
-                <li>
-                    <a href={item.href} key={index}>{item.label}</a>
-                </li>
-            ) }
-            </ul>
-
+            <ul className={className}>{items.map((item) => <li><a href={item.href}>{item.label}</a></li>)}</ul>
         );
-
-
     }
 }
-
-
-

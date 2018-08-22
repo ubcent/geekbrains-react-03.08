@@ -1,57 +1,41 @@
-import React, {Component, Fragment} from 'react';
+
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import Menu from './components/Menu';
 import Wrapper from './components/Wrapper';
-import Button from './components/Button';
-import CommentList from 'components/CommentList';
-import CommentForm from 'components/CommentForm';
 
-const menuItems = [
+
+const menuItems = [{
+    label: 'Home',
+    href: '/'
+},
     {
-        label: 'Home',
-        href: '/'
+        label: 'News',
+        href: '/new'
     },
     {
-        label: 'Blog',
-        href: '/'
+        label: 'About',
+        href: '/new'
     },
     {
-        label: 'Comments',
-        href: '/'
-    }
+        label: 'Contacts',
+        href: '/new'
+    },
 ];
-
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            comments: [],
-        }
-    }
-    handleSubmit = (comment) =>{
-        const { comments } = this.state;
-        this.setState({
-            comments: comments.concat([comment]),
-        });
-    };
 
     render() {
-        const { comments } = this.state;
         return (
-
+            <Fragment>
             <div>
-                <div id="header"><Menu size='small' items={menuItems}/><Button/></div>
-                <div><Wrapper> Hello users!</Wrapper></div>
-               <div>
-                <CommentList/>
-                <CommentForm onSubmit={this.handleSubmit()}/>
-            </div>
-            </div>
-        )
+                <div id="menu"><Menu size="small" items={menuItems}/></div>
+            <Wrapper> <div>Hello world</div></Wrapper>
 
+            </div>
+            </Fragment>
+        );
     }
 }
-
 
 ReactDOM.render(<App/>, document.getElementById('app'));
