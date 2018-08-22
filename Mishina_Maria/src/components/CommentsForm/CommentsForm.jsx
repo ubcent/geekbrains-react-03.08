@@ -25,6 +25,10 @@ export default class CommentsForm extends Component {
       if (typeof onSubmit === 'function'){
           onSubmit(this.state);
       }
+      this.setState({
+          author: '',
+          message: '',
+      });
       event.preventDefault();
 
   };
