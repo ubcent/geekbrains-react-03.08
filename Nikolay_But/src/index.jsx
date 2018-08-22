@@ -1,16 +1,22 @@
 import 'bootstrap/dist/css/bootstrap.css';
 
-import React, { Component, Fragment } from 'react';
+import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+
+import routes from './routes';
 
 import Menu from './components/Menu';
 import Layout from './components/Layout';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
 import CommentsForm from 'components/CommentsForm';
+import CommentContainer from 'containers/CommentContainer';
 import CommentsListContainer from 'containers/CommentsListContainer';
 import BlogsContainer from 'containers/BlogsContainer';
 import UsersContainer from 'containers/UsersContainer';
+import Header from 'components/Header';
+
 
 const menuItems = [
   {
@@ -68,7 +74,7 @@ class App extends Component {
   }
 
   handleSubmit = (comment) => {
-    const { comments, blogs, users } = this.state;
+    const {comments, blogs, users} = this.state;
 
     this.setState({
       comments: comments.concat([comment]),
@@ -77,21 +83,24 @@ class App extends Component {
   }
 
   render() {
-    const { comments, blogs, users } = this.state;
+    const {comments, blogs, users} = this.state;
 
     return (
-      <Fragment>
-        <Layout className="layout row">
-          <Menu size="big" items={menuItems}></Menu>
-          <Sidebar items={sidebarItems} />
-          <Content articles={articles}>
-            <CommentsListContainer comments={comments} />
-            <CommentsForm onSubmit={this.handleSubmit} />
-            <UsersContainer users={users} />
-            <BlogsContainer blogs={blogs} />
-          </Content>
-        </Layout>
-      </Fragment>
+      <BrowserRouter>
+        <Fragment>
+          <Header>I'm header</Header>
+          <Layout className="layout row">
+            <Menu size="big" items={menuItems}></Menu>
+            <Sidebar items={sidebarItems} />
+            <Content articles={articles}>
+              <Switch>
+                {routes.map((route, idx) => <Route key={idx} {...route} />)}
+              </Switch>
+              <footer>I'm footer</footer>
+            </Content>
+          </Layout>
+        </Fragment>
+      </BrowserRouter>
     )
   }
 }

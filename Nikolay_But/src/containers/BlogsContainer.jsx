@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 
 import Blogs from 'components/Blogs';
 
@@ -17,14 +17,14 @@ export default class BlogsContainer extends PureComponent {
       .then((response) => response.json())
       .then((response) => {
         this.setState({
-          blogs: response.map((blog) => ({ id: blog.id, author: blog.title, text: blog.body })),
+          blogs: response.map((blog) => ({id: blog.id, author: blog.title, text: blog.body})),
           loading: false,
         })
       });
   }
 
   render() {
-    const { blogs, loading } = this.state;
+    const {blogs, loading} = this.state;
 
     return (
       loading ? 'Loading' : <Blogs blogs={blogs} />
