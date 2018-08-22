@@ -2,6 +2,7 @@ import './Post.scss';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import {
   Card,
   CardBody,
@@ -38,7 +39,7 @@ export default class Post extends Component {
           <a href={postUrl}><Button color="primary">Read More ...</Button></a>
           </CardBody>
           <CardFooter className="text-muted">
-            Posted on {date.toISOString()} by <a href="#">{author}</a>
+            Posted on {moment(date).format('YYYY-MM-DD')} by <a href="#">{author}</a>
           </CardFooter>
         </Card>
       </div>

@@ -19,10 +19,7 @@ import BloggerViewContainer from 'containers/BloggerViewContainer';
 import BloggersListContainer from 'containers/BloggersListContainer';
 import CommentsListContainer from 'containers/CommentsListContainer';
 
-
-
-import Content from '../../Content';
-
+import Content from '../../Content'; // этот импорт временное решение, когда будет БД - то будет удален
 
 export default class PageContent extends Component {
   constructor(props) {
@@ -35,7 +32,6 @@ export default class PageContent extends Component {
   }
 
   componentDidMount() {
-    console.log(window.location.hash.substr(1).split('/'));
     window.addEventListener('hashchange', () => {
       this.setState({
         routeAction: window.location.hash.substr(1).split('/')[1],
