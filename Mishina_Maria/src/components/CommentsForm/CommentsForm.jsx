@@ -30,7 +30,6 @@ export default class CommentsForm extends Component {
   };
 
   render() {
-  const {author} = this.state;
 
   return(
     <Card className="my-4">
@@ -40,12 +39,12 @@ export default class CommentsForm extends Component {
                 <FormGroup>
                     <label>
                         Author:<br/>
-                        <input onChange={this.handleChange} value={author} type="text" name="author" className="form-control"/>
+                        <input onChange={this.handleChange} value={this.state.author} type="text" name="author" className="form-control"/>
                     </label>
                     <br/>
                     <label>
                         Message:<br/>
-                        <textarea onChange={this.handleChange} name="message" className="form-control" rows="3" cols="100"/>
+                        <textarea onChange={this.handleChange} value={this.state.message} name="message" className="form-control" rows="3" cols="100"/>
                     </label><br/>
                     <button onClick={this.handleSubmit} className="btn btn-primary">Submit</button>
                 </FormGroup>
