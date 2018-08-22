@@ -1,23 +1,35 @@
 import 'bootstrap/dist/css/bootstrap.css';
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import Wrapper from './components/Wrapper';
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import CommentsList from 'components/CommentsList';
+import CommentsForm from 'components/CommentsForm';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            comments: [],
+        }
+    }
+
+    handleSubmit = (comment) => {
+        const { comments } = this.state;
+
+        this.setState({
+            comments: comments.concat([comment]),
+        })
+    }
+
     render() {
+        const { comments } = this.state;
         return (
-            <div>
-                <Wrapper>
-                    <Header/>
-                    <Main/>
-                    <Footer/>
-                </Wrapper>
-            </div>
+            <Fragment>
+                <CommentsList comments={comments}/>
+                <CommentsForm onSubmit={this.handleSubmit}/>
+            </Fragment>
         )
     }
 }
