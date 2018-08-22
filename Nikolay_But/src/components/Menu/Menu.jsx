@@ -9,7 +9,7 @@ import LoginButton from './../LoginButton';
 export default class Menu extends Component {
   static propTypes = {
     items: PropTypes.arrayOf(
-      PropTypes.shape({ href: PropTypes.string, label: PropTypes.string })
+      PropTypes.shape({ id: PropTypes.number, href: PropTypes.string, label: PropTypes.string })
     ),
     size: PropTypes.oneOf(['big', 'small']),
   }
@@ -18,8 +18,6 @@ export default class Menu extends Component {
     size: 'small',
     items: []
   }
-
-
 
   render() {
     const { items, size } = this.props;
@@ -32,7 +30,7 @@ export default class Menu extends Component {
     return (
       <div>
          <ul className={className}>
-          <div className="left-col">{items.map((item) => <li><a href={item.href}>{item.label}</a></li>)}</div>
+          <div className="left-col">{items.map((item) => <li key={item.id}><a href={item.href}>{item.label}</a></li>)}</div>
           <div className="right-col"><LoginButton text="Login"/></div>
          </ul>
       </div>

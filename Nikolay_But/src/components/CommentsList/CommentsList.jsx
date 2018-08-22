@@ -10,6 +10,7 @@ export default class CommentsList extends Component {
   static propTypes = {
     comments: PropTypes.arrayOf(
       PropTypes.shape({
+        id: PropTypes.number.isRequired,
         author: PropTypes.string.isRequired,
         message: PropTypes.string.isRequired,
       })
@@ -25,7 +26,7 @@ export default class CommentsList extends Component {
 
     return (
       <ul className="CommentsList">
-        {comments.map((comment) => <li><Comment {...comment}/></li>)}
+        {comments.map((comment) => <li key={comment.id}><Comment {...comment} /></li>)}
       </ul>
     );
   }
