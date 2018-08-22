@@ -11,7 +11,8 @@ module.exports = {
         filename: 'bundle.js',
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        alias: {components: path.resolve(__dirname, 'src', 'components')}
     },
     module: {
         rules: [
@@ -23,10 +24,10 @@ module.exports = {
                 },
             },
             {
-                test: /\.css$/,
+                test: /\.s?css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader']
+                    use: ['css-loader', 'sass-loader']
                 })
             },
         ]
@@ -38,4 +39,4 @@ module.exports = {
             filename: 'index.html',
         })
     ]
-}
+};

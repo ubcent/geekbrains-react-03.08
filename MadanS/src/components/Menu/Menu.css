@@ -1,5 +1,38 @@
+#header {
+    background-color: grey;
+}
 .menu {
-    background-color: aquamarine;
+    position:relative;
+    width: 500px;
+      display: flex;
+    list-style-type: none;
+    /* задано чтобы центрировать */
+    margin: 0 0 0 auto;
+    /* задано чтобы центрировать */
+    padding-top: 18px;
+}
+.menu a {
+    color: snow;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    /*отменяет подчеркивание*/
+    padding: 10px 15px;
+    line-height: 51px;
+    text-align: left;
+    align-items: center;
+    margin: 0 10px;
+
+}
+.menu a:hover {
+    padding-bottom: 3px;
+    border-bottom: 1px solid white;
+    color: white;
+}
+.menu > li {
+    position: relative;
+    text-align: right;
 }
 
 .menu-big li a {

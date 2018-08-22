@@ -67,3 +67,6 @@ node_modules
 # ignore folders
 gregory-kovorotny
 Nikita_Sysoev
+
+# ignore folders
+.idea
