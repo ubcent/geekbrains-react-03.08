@@ -1,13 +1,14 @@
 import './CommentsList.scss';
 
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Comment from "../Comment";
+import Comment from '../Comment';
 
 export default class CommentsList extends Component {
     static propTypes = {
         comments: PropTypes.arrayOf(
             PropTypes.shape({
+                id: PropTypes.number.isRequired,
                 author: PropTypes.string.isRequired,
                 message: PropTypes.string.isRequired
             })
@@ -15,7 +16,7 @@ export default class CommentsList extends Component {
     };
 
     static defaultProps = {
-        comments: []
+        comments: [],
     };
 
     render() {
@@ -23,8 +24,8 @@ export default class CommentsList extends Component {
         return (
             <ul className="CommentsList">
                 {
-                    (comments.length > 0) ?
-                        comments.map((comment, index) => <li><Comment key={index} {...comment}/></li>)
+                    comments.length ?
+                        comments.map((comment, index) => <li key={index}><Comment {...comment}/></li>)
                         :
                         <p>No comments</p>
                 }

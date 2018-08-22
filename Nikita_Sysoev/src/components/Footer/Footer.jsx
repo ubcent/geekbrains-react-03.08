@@ -9,7 +9,7 @@ export default class Footer extends Component {
         return (
             <footer className="footer">
                 <Wrapper>
-                    <p> Copyright © React Blog 2018</p>
+                    <p> Copyright © Nikita Sysoev 2018</p>
                 </Wrapper>
             </footer>
         )

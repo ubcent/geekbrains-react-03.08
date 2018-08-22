@@ -1,0 +1,35 @@
+import React, {Component} from 'react';
+
+import CommentsList from '../components/CommentsList';
+
+export default class CommentsListContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            comments: [],
+        };
+    }
+
+    componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/comments?_limit=10')
+            .then((response) => response.json())
+            .then((comments) => {
+                this.setState({
+                    comments: comments.map((comment) => ({
+                        id: comment.id,
+                        author: comment.email,
+                        message: comment.body
+                    })),
+                    loading: false,
+                })
+            });
+    }
+
+    render() {
+        const {comments, loading} = this.state;
+        return (
+            loading ? 'Loading...' : <CommentsList comments={comments}/>
+        )
+    }
+}

@@ -2,19 +2,21 @@
   display: flex;
   -ms-flex-align: start;
   align-items: flex-start;
-  margin-bottom: 1.5rem!important;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  padding: 5px;
 }
 
 .mr-3, .mx-3 {
-  margin-right: 1rem!important;
+  margin-right: 1rem;
 }
 .d-flex {
-  display: -ms-flexbox!important;
-  display: flex!important;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .rounded-circle {
-  border-radius: 50%!important;
+  border-radius: 50%;
 }
 
 .media-body {
@@ -22,6 +24,11 @@
   flex: 1;
 }
 
-.mt-0, .my-0 {
-  margin-top: 0!important;
+.media-body p {
+  word-break:break-all;
 }
+
+.mt-0, .my-0 {
+  margin-top: 0;
+}
+
