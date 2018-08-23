@@ -21,7 +21,10 @@ module.exports = {
  },
 	//правило означает, что если мы импортируем что то без расширения, то файл будет знать, если он что то нашел, то использует данные расширенияS
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.js', '.jsx'],
+		alias: {
+		components: path.resolve(__dirname, 'src', 'components'),
+	}
 	},
 	
 	//настраиваем то, как js модули должны собираться. Rules. Каждое правило - это объект
@@ -39,10 +42,10 @@ module.exports = {
 			},
 			{
 				//правило для обработки css
-				test: /\.css$/,
+				test: /\.s?css$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
-					use: ['css-loader']
+					use: ['css-loader', 'sass-loader']
 				})
 			},
 			//отдельное правило для обработки html не нужно. Можно сразу зарегистрировать в разделе плагины
