@@ -26,7 +26,6 @@ export default class PostsContainer extends Component {
     }
 
     render() {
-        console.log(this.state);
         const {posts, loading} = this.state;
         return (
             loading ? 'Loading...' : <PostsList posts={posts}/>

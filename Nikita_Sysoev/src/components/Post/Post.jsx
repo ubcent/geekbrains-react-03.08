@@ -3,6 +3,7 @@ import './Post.scss';
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {Button} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 export default class Post extends Component {
     static propTypes = {
@@ -12,7 +13,7 @@ export default class Post extends Component {
     static defaultProps = {};
 
     render() {
-        const {title, text} = this.props;
+        const {title, text, id} = this.props;
         return (
             <div className="Post">
                 <img className="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"/>
@@ -23,7 +24,9 @@ export default class Post extends Component {
                     <p className="card-text">
                         {text}
                     </p>
-                    <Button color="primary">Read More →</Button>
+                    <Link to={`/blog/${id}`}>
+                        <Button color="primary">Read More →</Button>
+                    </Link>
                 </div>
                 <div className="card-footer text-muted">
                     Posted on January 1, 2017 by
