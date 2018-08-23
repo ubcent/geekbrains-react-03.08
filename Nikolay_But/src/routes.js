@@ -1,6 +1,8 @@
 import CommentsListContainer from 'containers/CommentsListContainer';
 import CommentContainer from 'containers/CommentContainer';
 import HomePage from 'components/HomePage';
+import BlogsContainer from 'containers/BlogsContainer';
+import BlogContainer from 'containers/BlogContainer';
 
 export default [
   {
@@ -17,5 +19,15 @@ export default [
     component: CommentContainer,
     exact: true,
     path: '/comments/:id',
+  },
+  {
+    component: BlogsContainer,
+    exact: true,
+    path: '/blogs/',
+  },
+  {
+    component: BlogContainer,
+    exact: true,
+    path: '/blogs/:id',
   },
 ];

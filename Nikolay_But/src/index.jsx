@@ -10,11 +10,6 @@ import Menu from './components/Menu';
 import Layout from './components/Layout';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
-import CommentsForm from 'components/CommentsForm';
-import CommentContainer from 'containers/CommentContainer';
-import CommentsListContainer from 'containers/CommentsListContainer';
-import BlogsContainer from 'containers/BlogsContainer';
-import UsersContainer from 'containers/UsersContainer';
 import Header from 'components/Header';
 
 
@@ -33,6 +28,11 @@ const menuItems = [
     id: 2,
     label: 'Users',
     href: '/users'
+  },
+  {
+    id: 3,
+    label: 'Comments',
+    href: '/comments'
   },
 ];
 
@@ -96,8 +96,8 @@ class App extends Component {
               <Switch>
                 {routes.map((route, idx) => <Route key={idx} {...route} />)}
               </Switch>
-              <footer>I'm footer</footer>
             </Content>
+            <footer>I'm footer</footer>
           </Layout>
         </Fragment>
       </BrowserRouter>

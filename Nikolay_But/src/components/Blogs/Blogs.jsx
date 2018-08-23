@@ -1,7 +1,10 @@
 import './Blogs.scss';
 
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
+
+import Blog from 'components/Blog';
 
 export default class Blogs extends Component {
 
@@ -9,8 +12,8 @@ export default class Blogs extends Component {
     blogs: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        author: PropTypes.string.isRequired,
-        text: PropTypes.string.isREquired,
+        title: PropTypes.string.isRequired,
+        body: PropTypes.string.isREquired,
       })
     )
   }
@@ -20,17 +23,18 @@ export default class Blogs extends Component {
   }
 
   render() {
-    const { blogs } = this.props;
+    const {blogs, onLoadMore} = this.props;
 
     return (
-      <ul className="Blogs">
-        {blogs.map((blog) => <li key={blog.id}>
-          <div className="Comment">
-            <h4>{blog.author}</h4>
-            <div>{blog.text}</div>
-          </div>
-        </li>)}
-      </ul>
+      <Fragment>
+        <div className="Blogs">
+          {blogs.map((blog) => <div key={blog.id} className="Blogs__blog">
+            <p>ID {blog.id}: <Link to={`/blogs/${blog.id}`}>{blog.title}</Link></p>
+            <p>{blog.body}</p>
+          </div>)}
+        </div>
+        <button onClick={onLoadMore}>Load More</button>
+      </Fragment>
     );
   }
 }
