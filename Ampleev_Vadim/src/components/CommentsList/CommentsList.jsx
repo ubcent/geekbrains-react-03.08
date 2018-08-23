@@ -23,7 +23,7 @@ export default class CommentsList extends Component {
         const { comments } = this.props;
         return (
             <ul className="CommentsList">
-                {comments.map((comment) => <li><Comment {...comment}/></li>)}
+                {comments.map((comment, i) => <li key={i}><Comment {...comment}/></li>)}
             </ul>
         );
     }
