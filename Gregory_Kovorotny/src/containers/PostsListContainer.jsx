@@ -9,12 +9,12 @@ export default class PostsListContainer extends Component {
   }
 
   static defaultProps = {
-    count: 3,
+    count: 2,
   }
 
   constructor(props) {
     super(props);
-
+    console.log('posts constructor');
     this.state = {
       loading: true,
       posts: [],
@@ -24,17 +24,20 @@ export default class PostsListContainer extends Component {
   }
 
   // чрезмерно кажется навороченным. TODO - надо подумать
+  // хотя если будем из БД запрашивать - то мы ведь изначально будем
+  // знать общее кол-во постов, и все будет гораздо проще
+  // иы сразу будем знать какой номер страницы последний
   loadPosts(direction = 0) {
     const { userId } = this.props.match.params;
 
     const count = this.props.count;
-    const start = this.state.page * count - 1;
     let newPage = this.state.page;
     if (direction === 1 && !this.state.reachEnd) {
       newPage++;
     } else if (direction === -1 && this.state.page !== 1) {
       newPage--;
     }
+    const start = (newPage - 1) * count;
 
     if (newPage !== this.state.page || direction === 0) {
       let fetchUrl = `https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=${count}`;
@@ -44,21 +47,38 @@ export default class PostsListContainer extends Component {
       fetch(fetchUrl)
         .then((response) => response.json())
         .then((posts) => {
-          this.setState({
-            loading: false,
-            posts: posts.map((post) => ({
-              id: post.id,
-              title: post.title,
-              body: post.body,
-              imgUrl: 'http://placehold.it/750x300.png', // пока заглушка дефолтная
-              date: new Date, // пока заглушка дефолтная
-              author: 'Blogger X', // пока заглушка дефолтная
-            })),
-            page: newPage,
-            reachEnd: (posts.length < count),
-          })
+          if (posts.length === 0) {
+            this.setState((prevState) => ({
+              loading: false,
+              reachEnd: true,
+            }));
+          } else {
+            this.setState({
+              loading: false,
+              posts: posts.map((post) => ({
+                id: post.id,
+                title: post.title,
+                body: post.body,
+                imgUrl: 'http://placehold.it/750x300.png', // пока заглушка дефолтная
+                date: new Date, // пока заглушка дефолтная
+                author: 'Blogger X', // пока заглушка дефолтная
+              })),
+              page: newPage,
+              reachEnd: (posts.length < count),
+            });
+          }
         });
     }
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      loading: true,
+      posts: [],
+      page: 1,
+      reachEnd: false,
+    });
+    this.loadPosts();
   }
 
   componentDidMount() {
@@ -71,14 +91,17 @@ export default class PostsListContainer extends Component {
       prev: -1,
       next: +1,
     }
+    this.setState({
+      loading: true,
+    });
     this.loadPosts(DIRECTION[direction]);
   }
 
   render() {
-    const { loading, posts, page } = this.state;
+    const { loading, posts, page, reachEnd } = this.state;
 
     return (
-      loading ? 'loading' : <PostsList onLoadPosts={this.handleLoadPosts} posts={posts} />
+      loading ? 'loading' : <PostsList onLoadPosts={this.handleLoadPosts} posts={posts} page={page} reachEnd={reachEnd} />
     );
   }
 }

@@ -21,6 +21,8 @@ export default class PostsList extends Component {
       })
     ),
     onLoadPosts: PropTypes.func.isRequired,
+    page: PropTypes.number.isRequired,
+    reachEnd: PropTypes.bool.isRequired,
   }
 
   static defaultProps = {
@@ -36,7 +38,7 @@ export default class PostsList extends Component {
   }
 
   render() {
-    const { posts } = this.props;
+    const { posts, page, reachEnd } = this.props;
 
     return (
       <div className="posts-list">
@@ -44,8 +46,8 @@ export default class PostsList extends Component {
         <Row>
           <Col md="4" className="mx-auto">
             <ButtonGroup className="my-2">
-              <Button className="m-1" outline color="primary" onClick={this.handleLoadPosts} name="prev">Newer</Button>
-              <Button className="m-1" outline color="primary" onClick={this.handleLoadPosts} name="next">Older</Button>
+              <Button disabled={page === 1} className="m-1" outline color="primary" onClick={this.handleLoadPosts} name="prev">Newer</Button>
+              <Button disabled={reachEnd} className="m-1" outline color="primary" onClick={this.handleLoadPosts} name="next">Older</Button>
             </ButtonGroup>
           </Col>
         </Row>

@@ -33,7 +33,7 @@ export default class Post extends Component {
         <Card>
           <CardImg top width="100%" src={imgUrl} alt="post img 750x300" />
           <CardBody>
-            <CardTitle>{title}</CardTitle>
+            <CardTitle>{title}: id {id}</CardTitle>
             <CardText>
               {body}
           </CardText>

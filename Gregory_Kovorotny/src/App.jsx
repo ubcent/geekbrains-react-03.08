@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import cookie from 'react-cookie';
 
 import MenuHeader from 'components/MenuHeader';
 import Footer from 'components/Footer';
@@ -18,12 +19,16 @@ export class App extends Component {
     super(props);
 
     this.state = {
-      greetingModal: true, // по идее лучше брать из Cookie и хранить там же
+      noGreetingModal: cookie.load('no-greeting-modal') || false,
     }
+
+    console.log(cookie.load('no-greeting-modal'));
+    console.log(this.state);
   }
 
   handleModalClose = () => {
-    this.setState({ greetingModal: false });
+    this.setState({ noGreetingModal: true });
+    cookie.save('no-greeting-modal', true, { path: '/', maxAge: 100 });
   }
 
   render() {
@@ -33,7 +38,7 @@ export class App extends Component {
           <MenuHeader items={Content.menu} />
           <PageContent />
           <Footer />
-          <Modal centered isOpen={this.state.greetingModal} toggle={this.handleModalClose}>
+          <Modal centered isOpen={!this.state.noGreetingModal} toggle={this.handleModalClose}>
             <ModalBody>
               <p>We greet you at The Blog Place!</p>
               <p>Here you can start your blog, view other blogger's posts, and even comment!</p>
