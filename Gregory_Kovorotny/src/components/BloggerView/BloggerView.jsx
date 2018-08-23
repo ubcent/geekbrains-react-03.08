@@ -1,6 +1,7 @@
 import './BloggerView.scss';
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Col,
@@ -45,7 +46,7 @@ export default class BloggerView extends Component {
               <CardText>E-mail: {email}</CardText>
               <CardText>Phone: {phone}</CardText>
               <CardText>City: {address.city}</CardText>
-              <a href="#/bloggers"><Button color="primary">Back to bloggers list</Button></a>
+              <Link to="/bloggers"><Button color="primary">Back to bloggers list</Button></Link>
             </CardBody>
           </Card>
         </Col>

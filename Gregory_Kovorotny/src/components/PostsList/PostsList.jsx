@@ -41,7 +41,7 @@ export default class PostsList extends Component {
     return (
       <div className="posts-list">
         {posts.map((post) => <Post {...post}/>)}
-        <Row noGutters={false}>
+        <Row>
           <Col md="4" className="mx-auto">
             <ButtonGroup className="my-2">
               <Button className="m-1" outline color="primary" onClick={this.handleLoadPosts} name="prev">Newer</Button>

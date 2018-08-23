@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import MenuHeader from 'components/MenuHeader';
 import Footer from 'components/Footer';
@@ -10,8 +11,7 @@ import {
   Button,
 } from 'reactstrap';
 
-import Content from './Content';
-
+import Content from 'root/Content'; // временное решенеие, надо будет с БД грузить в будущем?
 
 export class App extends Component {
   constructor(props) {
@@ -28,20 +28,22 @@ export class App extends Component {
 
   render() {
     return (
-      <Fragment>
-        <MenuHeader items={Content.menu} />
-        <PageContent />
-        <Footer />
-        <Modal centered isOpen={this.state.greetingModal} toggle={this.handleModalClose}>
-          <ModalBody>
-            <p>We greet you at The Blog Place!</p>
-            <p>Here you can start your blog, view other blogger's posts, and even comment!</p>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.handleModalClose}>Got it!</Button>
-          </ModalFooter>
-        </Modal>
-      </Fragment>
+      <BrowserRouter>
+        <Fragment>
+          <MenuHeader items={Content.menu} />
+          <PageContent />
+          <Footer />
+          <Modal centered isOpen={this.state.greetingModal} toggle={this.handleModalClose}>
+            <ModalBody>
+              <p>We greet you at The Blog Place!</p>
+              <p>Here you can start your blog, view other blogger's posts, and even comment!</p>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={this.handleModalClose}>Got it!</Button>
+            </ModalFooter>
+          </Modal>
+        </Fragment>
+      </BrowserRouter>
     );
   }
 }

@@ -1,6 +1,7 @@
 import './MenuHeader.scss';
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {
@@ -58,8 +59,10 @@ export default class MenuHeader extends Component {
             <NavbarToggler onClick={this.toggleMenu} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                {items.map((item) => <NavItem><NavLink onClick={this.closeMenu} href={item.href}>{item.label}</NavLink></NavItem>)}
-                <NavItem onClick={this.closeMenu}><Login /></NavItem>
+                {items.map((item) => <NavItem onClick={this.closeMenu}>
+                  <NavLink tag={Link} to={item.href}>{item.label}</NavLink>
+                </NavItem>)}
+                <NavItem ><Login /></NavItem>
               </Nav>
             </Collapse>
           </Container>

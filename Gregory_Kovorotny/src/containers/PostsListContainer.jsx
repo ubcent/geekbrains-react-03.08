@@ -5,7 +5,6 @@ import PostsList from 'components/PostsList';
 
 export default class PostsListContainer extends Component {
   static propTypes = {
-    filterId: PropTypes.number,
     count: PropTypes.number,
   }
 
@@ -26,7 +25,8 @@ export default class PostsListContainer extends Component {
 
   // чрезмерно кажется навороченным. TODO - надо подумать
   loadPosts(direction = 0) {
-    const userId = this.props.filterId;
+    const { userId } = this.props.match.params;
+
     const count = this.props.count;
     const start = this.state.page * count - 1;
     let newPage = this.state.page;
@@ -38,7 +38,7 @@ export default class PostsListContainer extends Component {
 
     if (newPage !== this.state.page || direction === 0) {
       let fetchUrl = `https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=${count}`;
-      if (userId) {
+      if (typeof userId !== 'undefined') {
         fetchUrl = `https://jsonplaceholder.typicode.com/posts?userId=${userId}&_start=${start}&_limit=${count}`;
       }
       fetch(fetchUrl)
@@ -76,7 +76,6 @@ export default class PostsListContainer extends Component {
 
   render() {
     const { loading, posts, page } = this.state;
-    console.log(this.state);
 
     return (
       loading ? 'loading' : <PostsList onLoadPosts={this.handleLoadPosts} posts={posts} />

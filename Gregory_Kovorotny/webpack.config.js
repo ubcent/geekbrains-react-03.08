@@ -14,6 +14,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
+      root: path.resolve(__dirname, 'src'),
       components: path.resolve(__dirname, 'src', 'components'),
       containers: path.resolve(__dirname, 'src', 'containers'),
       widgets: path.resolve(__dirname, 'src', 'components', 'widgets'),
@@ -45,5 +46,8 @@ module.exports = {
       filename: 'index.html',
     }),
     new CopyWebpackPlugin([{ from: path.resolve(__dirname, 'src', 'static'), to: path.resolve(__dirname, 'dist', 'static') }]),
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true,
+  },
 }

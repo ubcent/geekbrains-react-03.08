@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import CommentsList from 'components/CommentsList';
 
 export default class CommentsListContainer extends Component {
-  static propTypes = {
-    filterId: PropTypes.number,
-  }
+  static propTypes = {}
 
   constructor(props) {
     super(props);
@@ -18,16 +16,16 @@ export default class CommentsListContainer extends Component {
   }
 
   componentDidMount() {
-    const userId = this.props.filterId;
+    const { userId } = this.props.match.params;
+
     fetch(`https://jsonplaceholder.typicode.com/comments`) // если бы делали запрос в БД - то понятно фильтр был бы на стороне БД!
       .then((response) => response.json())
       .then((comments) => {
-        if (userId) {
+        if (typeof userId !== 'undefined') {
           fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
             .then((response) => response.json())
             .then((posts) => {
               const userPostsIds = posts.map((post) => post.id)
-              console.log(userPostsIds);
               this.setState({
                 loading: false,
                 comments: comments.filter((comment) => (userPostsIds.includes(comment.postId)))

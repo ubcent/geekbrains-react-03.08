@@ -1,6 +1,7 @@
 import './Blogger.scss';
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class Blogger extends Component {
@@ -19,16 +20,16 @@ export default class Blogger extends Component {
 
   render() {
     const { id, name, username, posts, comments } = this.props;
-    const postsUrl = '#/posts/' + id;
-    const commentsUrl = '#/comments/' + id;
-    const userUrl = '#/blogger/' + id;
+    const postsUrl = '/posts/' + id;
+    const commentsUrl = '/comments/' + id;
+    const userUrl = '/blogger/' + id;
 
     return (
       <tr className="blogger">
-        <td><a className="blogger-name" href={userUrl}>{name}</a></td>
-        <td><a className="blogger-name" href={userUrl}>{username}</a></td>
-        <td>{posts.length ? <a href={postsUrl}>{posts.length}</a> : 0 }</td>
-        <td>{comments.length ? <a href={commentsUrl}>{comments.length}</a> : 0 }</td>
+        <td><Link className="blogger-name" to={userUrl}>{name}</Link></td>
+        <td><Link className="blogger-name" to={userUrl}>{username}</Link></td>
+        <td>{posts.length ? <Link to={postsUrl}>{posts.length}</Link> : 0 }</td>
+        <td>{comments.length ? <Link to={commentsUrl}>{comments.length}</Link> : 0 }</td>
       </tr>
     );
   }

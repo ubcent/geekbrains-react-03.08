@@ -1,6 +1,7 @@
 import './Post.scss';
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import {
@@ -25,7 +26,7 @@ export default class Post extends Component {
 
   render() {
     const { id, imgUrl, title, body, date, author } = this.props;
-    const postUrl = '#/post/' + id;
+    const postUrl = '/post/' + id;
 
     return (
       <div className="post">
@@ -36,7 +37,7 @@ export default class Post extends Component {
             <CardText>
               {body}
           </CardText>
-          <a href={postUrl}><Button color="primary">Read More ...</Button></a>
+          <Link to={postUrl}><Button color="primary">Read More ...</Button></Link>
           </CardBody>
           <CardFooter className="text-muted">
             Posted on {moment(date).format('YYYY-MM-DD')} by <a href="#">{author}</a>
