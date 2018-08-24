@@ -1,1 +1,6 @@
-.Blogs {}
+.Blogs {
+  &__blog {
+    border: 1px solid;
+    padding: 10px;
+  }
+}
