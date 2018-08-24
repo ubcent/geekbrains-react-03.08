@@ -1,11 +1,10 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, 'src', 'index.js'),
+        main: path.resolve(__dirname, 'src', 'index.jsx'),
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -14,17 +13,17 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
                 },
             },
             {
-                test: /\.css$/,
+                test: /\.s?css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader']
+                    use: ['css-loader', 'sass-loader']
                 })
             },
             {
@@ -33,18 +32,20 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+        // alias: {
+        //   components: path.resolve(__dirname, 'src', 'components')
+        // containers: path.resolve(__dirname, 'src', 'containers')
+        // },
+    },
     plugins: [
-        new ExtractTextPlugin({filename: 'bundle.css'}),
+        new ExtractTextPlugin({
+            filename: 'bundle.css'
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html'),
             filename: 'index.html',
-        }),
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            server: {
-                baseDir: ['dist']
-            }
-        }),
+        })
     ]
 };

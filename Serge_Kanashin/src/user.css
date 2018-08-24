@@ -1,0 +1,10 @@
+div {
+  background-color: brown;
+  width: 250px;
+  height: 150px;
+}
+#app {
+ color: white;
+ text-align: center;
+ padding: 10px;
+}

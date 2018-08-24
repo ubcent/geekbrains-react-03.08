@@ -1,0 +1,11 @@
+.menu {
+  background-color: aquamarine;
+}
+
+.menu-big li a {
+  font-size: 24px;
+}
+
+.menu-small li a {
+  font-size: 16px;
+}
