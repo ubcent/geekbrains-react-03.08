@@ -1,22 +1,14 @@
 import './Comment.scss';
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
-export default class Comment extends Component {
-  static propTypes = {
-    author: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
-  }
+export default function(props) {
+  const {author, message} = props;
 
-  render() {
-    const { author, message } = this.props;
-
-    return (
-      <div className="Comment">
-        <h4>{author}</h4>
-        <div>{message}</div>
-      </div>
-    );
-  }
+  return (
+    <div className="Comment">
+      <h4 className="author">{author}</h4>
+      <div className="message">{message}</div>
+    </div>
+  );
 }

@@ -1,30 +1,49 @@
-import React, { Component, Fragment } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+
+import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+
+import routes from './routes';
 
 import Menu from './components/Menu';
 import Layout from './components/Layout';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
-import CommentsForm from 'components/CommentsForm';
-import CommentsList from 'components/CommentsList';
+import Header from 'components/Header';
+
 
 const menuItems = [
   {
+    id: 0,
     label: 'Home',
     href: '/'
   },
   {
-    label: 'News',
-    href: '/news'
+    id: 1,
+    label: 'Blogs',
+    href: '/blogs'
+  },
+  {
+    id: 2,
+    label: 'Users',
+    href: '/users'
+  },
+  {
+    id: 3,
+    label: 'Comments',
+    href: '/comments'
   },
 ];
 
 const sidebarItems = [
   {
+    id: 0,
     label: 'All articles',
     href: '/all'
   },
   {
+    id: 1,
     label: 'New articles',
     href: '/new'
   },
@@ -32,10 +51,12 @@ const sidebarItems = [
 
 const articles = [
   {
+    id: 0,
     label: 'All articles',
     href: '/all'
   },
   {
+    id: 1,
     label: 'New articles',
     href: '/new'
   },
@@ -47,11 +68,13 @@ class App extends Component {
 
     this.state = {
       comments: [],
+      blogs: [],
+      users: [],
     }
   }
 
   handleSubmit = (comment) => {
-    const { comments } = this.state;
+    const {comments, blogs, users} = this.state;
 
     this.setState({
       comments: comments.concat([comment]),
@@ -60,19 +83,24 @@ class App extends Component {
   }
 
   render() {
-    const { comments } = this.state;
+    const {comments, blogs, users} = this.state;
 
     return (
-      <Fragment>
-        <Layout className="layout row">
+      <BrowserRouter>
+        <Fragment>
+          <Header>I'm header</Header>
+          <Layout className="layout row">
             <Menu size="big" items={menuItems}></Menu>
-            <Sidebar items={sidebarItems}/>
+            <Sidebar items={sidebarItems} />
             <Content articles={articles}>
-              <CommentsList comments={comments} />
-              <CommentsForm onSubmit={this.handleSubmit} />
+              <Switch>
+                {routes.map((route, idx) => <Route key={idx} {...route} />)}
+              </Switch>
             </Content>
-        </Layout>
-      </Fragment>
+            <footer>I'm footer</footer>
+          </Layout>
+        </Fragment>
+      </BrowserRouter>
     )
   }
 }

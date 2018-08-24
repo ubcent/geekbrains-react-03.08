@@ -1,13 +1,13 @@
 import './Content.css';
 
-import React, { Component } from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
 
-export default class Content extends Component {
+export default class Content extends PureComponent {
   static propTypes = {
     items: PropTypes.arrayOf(
-      PropTypes.shape({ href: PropTypes.string, label: PropTypes.string })
+      PropTypes.shape({href: PropTypes.string, label: PropTypes.string})
     ),
   }
 
@@ -16,7 +16,7 @@ export default class Content extends Component {
   }
 
   render() {
-    const { children } = this.props;
+    const {children} = this.props;
 
     return (
       <div className="content">{children}</div>

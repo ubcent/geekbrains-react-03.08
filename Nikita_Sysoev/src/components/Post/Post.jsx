@@ -5,18 +5,24 @@ import PropTypes from 'prop-types';
 import {Button} from 'reactstrap';
 
 export default class Post extends Component {
-    static propTypes = {};
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+    };
     static defaultProps = {};
 
     render() {
+        const {title, text} = this.props;
         return (
             <div className="Post">
                 <img className="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"/>
                 <div className="card-body">
-                    <h2 className="card-title">Post Title</h2>
-                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-                        aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi
-                        vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                    <h2 className="card-title">
+                        {title}
+                    </h2>
+                    <p className="card-text">
+                        {text}
+                    </p>
                     <Button color="primary">Read More →</Button>
                 </div>
                 <div className="card-footer text-muted">

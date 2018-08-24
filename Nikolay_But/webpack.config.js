@@ -14,6 +14,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       components: path.resolve(__dirname, 'src', 'components'),
+      containers: path.resolve(__dirname, 'src', 'containers'),
     },
   },
   module: {
@@ -40,5 +41,8 @@ module.exports = {
       template: path.resolve(__dirname, 'src', 'index.html'),
       filename: 'index.html',
     })
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true,
+  },
 }

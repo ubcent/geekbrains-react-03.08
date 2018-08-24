@@ -1,8 +1,8 @@
 import './Layout.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-export default class Layout extends Component {
+export default class Layout extends PureComponent {
   render() {
     const { children } = this.props;
 

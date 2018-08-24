@@ -1,14 +1,14 @@
 import './Aside.scss';
 
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Panel} from 'react-bootstrap';
 import {Button, Form, FormGroup, Input} from 'reactstrap';
-import Login from "../Login";
+import {Link} from 'react-router';
+import Login from '../Login';
 
 export default class Aside extends Component {
     static propTypes = {};
-
     static defaultProps = {};
 
     render() {
@@ -28,10 +28,10 @@ export default class Aside extends Component {
                     </Panel.Heading>
                     <Panel.Body>
                         <Form inline>
-                            <FormGroup>
-                                <Input type="text" name="password" placeholder="Search for..."/>
+                            <FormGroup style={{display: "flex", justifyContent: "space-between"}}>
+                                <Input style={{width: "100%"}} type="text" name="password" placeholder="Search for..."/>
+                                <Button color="secondary">Go!</Button>
                             </FormGroup>
-                            <Button color="secondary">Go!</Button>
                         </Form>
                     </Panel.Body>
                 </Panel>
@@ -43,26 +43,26 @@ export default class Aside extends Component {
                                 <div className="col-lg-6">
                                     <ul className="list-unstyled mb-0">
                                         <li>
-                                            <a href="#">Web Design</a>
+                                            <Link to="/web">Web Design</Link>
                                         </li>
                                         <li>
-                                            <a href="#">HTML</a>
+                                            <Link to="/html">HTML</Link>
                                         </li>
                                         <li>
-                                            <a href="#">Freebies</a>
+                                            <Link to="/freebies">Freebies</Link>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="col-lg-6">
                                     <ul className="list-unstyled mb-0">
                                         <li>
-                                            <a href="#">JavaScript</a>
+                                            <Link to="/javascript">JavaScript</Link>
                                         </li>
                                         <li>
-                                            <a href="#">CSS</a>
+                                            <Link to="/css">CSS</Link>
                                         </li>
                                         <li>
-                                            <a href="#">Tutorials</a>
+                                            <Link to="/tutorials">Tutorials</Link>
                                         </li>
                                     </ul>
                                 </div>
