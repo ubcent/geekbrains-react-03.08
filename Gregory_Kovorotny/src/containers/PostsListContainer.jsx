@@ -14,7 +14,7 @@ export default class PostsListContainer extends Component {
 
   constructor(props) {
     super(props);
-    console.log('posts constructor');
+
     this.state = {
       loading: true,
       posts: [],
@@ -47,7 +47,6 @@ export default class PostsListContainer extends Component {
       fetch(fetchUrl)
         .then((response) => response.json())
         .then((posts) => {
-          console.log(posts);
           if (posts.length === 0) {
             this.setState((prevState) => ({
               loading: false,
@@ -73,7 +72,6 @@ export default class PostsListContainer extends Component {
   }
 
   componentWillReceiveProps() {
-    console.log('will receive');
     this.setState({
       loading: true,
       posts: [],
