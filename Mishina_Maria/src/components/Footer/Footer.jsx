@@ -8,7 +8,7 @@ export default class Footer extends Component {
       <Fragment>
           <footer className="py-5 bg-dark">
               <Container>
-                  <p className="m-0 text-center text-white">Copyroght &copy; Your Website 2018</p>
+                  <p className="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
               </Container>
           </footer>
       </Fragment>

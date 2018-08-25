@@ -1,6 +1,6 @@
 import React, {Component,Fragment} from 'react';
 
-import CommentsList from 'components/CommentsList';
+import CommentsListContainer from 'containers/CommentsListContainer';
 import CommentsForm from 'components/CommentsForm';
 
 export default class Post extends Component {
@@ -52,7 +52,7 @@ export default class Post extends Component {
                     iste modi, molestias possimus temporibus! Ab alias deserunt doloribus ea fugiat neque nisi quae, qui quo sed soluta.</p>
                 <hr/>
                 <CommentsForm onSubmit={this.handleSubmit}/>
-                <CommentsList comments={comments}/>
+                <CommentsListContainer comments={comments}/>
             </Fragment>
         )
     }
