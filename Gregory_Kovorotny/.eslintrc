@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "babel"
+  ],
+  "rules": {
+    "strict": 0,
+    "babel/new-cap": 1,
+    "babel/no-invalid-this": 1,
+    "babel/no-unused-expressions": 1
+  }
+}

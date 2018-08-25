@@ -1,8 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import CommentsList from 'containers/CommentsListContainer';
-import CommentsForm from 'components/CommentsForm';
+import routes from './routes';
+import store from './store';
+
+import Header from 'components/Header';
 
 class App extends Component {
   constructor(props) {
@@ -25,10 +29,17 @@ class App extends Component {
     const { comments } = this.state;
 
     return (
-      <Fragment>
-        <CommentsList comments={comments} />
-        <CommentsForm onSubmit={this.handleSubmit} />
-      </Fragment>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Fragment>
+            <Header>I'm header</Header>
+            <Switch>
+              {routes.map((route, idx) => <Route key={idx} {...route} />)}
+            </Switch>
+            <footer>I'm footer</footer>
+          </Fragment>
+        </BrowserRouter>
+      </Provider>
     )
   }
 }

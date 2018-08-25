@@ -1,7 +1,8 @@
 import './CommentsList.scss';
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Comment from 'components/Comment';
 
@@ -21,11 +22,14 @@ export default class CommentsList extends PureComponent {
   }
 
   render() {
-    const { comments } = this.props;
+    const { comments, onLoadMore } = this.props;
     return (
-      <ul className="CommentsList">
-        {comments.map((comment) => <li key={comment.id}><Comment {...comment} /></li>)}
-      </ul>
+      <Fragment>
+        <ul className="CommentsList">
+          {comments.map((comment) => <li key={comment.id}><Link to={`/comments/${comment.id}`}><Comment {...comment} /></Link></li>)}
+        </ul>
+        <button onClick={onLoadMore}>Load more</button>
+      </Fragment>
     );
   }
 }

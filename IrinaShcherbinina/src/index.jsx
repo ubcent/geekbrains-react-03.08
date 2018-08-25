@@ -1,36 +1,35 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Button } from 'reactstrap';
 
-import CommentsList from 'components/CommentsList';
-import CommentsForm from 'components/CommentsForm';
+import Menu from './components/Menu/';
+
+const menuItems = [{
+	label: 'Home',
+	href: '/'
+},
+{label: 'News',
+ href: '/new'
+ },
+ ]
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      comments: [],
-    }
-  }
-  
-  handleSubmit = (comment) => {
-    const { comments } = this.state;
-
-    this.setState({
-      comments: comments.concat([comment]),
-    })
-  }
-
-  render() {
-    const { comments } = this.state;
-
-    return (
-      <Fragment>
-        <CommentsList comments={comments} />
-        <CommentsForm onSubmit={this.handleSubmit} />
-      </Fragment>
-    )
-  }
+	//процесс отрисовки компонента метод render
+	
+	render() {
+		return (
+			<div>
+				<Menu size="small" items={menuItems} />
+				
+				
+			
+			</div>
+		)
+	}
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+
+
+

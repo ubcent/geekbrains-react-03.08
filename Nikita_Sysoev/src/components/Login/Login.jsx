@@ -1,6 +1,6 @@
 import '../Header/Header.css';
 
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 
@@ -9,7 +9,7 @@ export default class Login extends Component {
         super(props);
         this.state = {
             login: '',
-            password: ''
+            password: '',
         };
     }
 
@@ -29,15 +29,21 @@ export default class Login extends Component {
             <Form>
                 <FormGroup>
                     <Label for="exampleEmail">Login</Label>
-                    <Input onChange={this.handleChange} value={login} type="text" name="login" placeholder="email"/>
+                    <Input onChange={this.handleChange}
+                           value={login} type="text" name="login"
+                           placeholder="email"/>
                 </FormGroup>
                 <FormGroup>
                     <Label for="examplePassword">Password</Label>
-                    <Input onChange={this.handleChange} value={password} type="password" name="password"
+                    <Input onChange={this.handleChange}
+                           value={password} type="password" name="password"
                            placeholder="password"/>
                 </FormGroup>
-                <Button color="primary" onClick={this.login} disabled={!(login.trim() && password.trim())}>LOG
-                    IN</Button>
+                <Button color="primary"
+                        onClick={this.login}
+                        disabled={!(login.trim() && password.trim())}>
+                    LOG IN
+                </Button>
             </Form>
         );
     }

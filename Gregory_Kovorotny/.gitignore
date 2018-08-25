@@ -1,2 +1,3 @@
 # gregory - ignore dist folder
 /dist/
+.DS_Store

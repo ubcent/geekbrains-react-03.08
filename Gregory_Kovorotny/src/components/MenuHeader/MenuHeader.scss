@@ -1,0 +1,30 @@
+.menu-header {
+  .navbar {
+    margin-bottom: 0;
+    background-color: #4682B4;
+    z-index: 9999;
+    border: 0;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .navbar-brand {
+    font-weight: 600;
+  }
+
+
+  .navbar-dark .navbar-nav a:hover {
+    background-color: #fff;
+    color: #4682B4;
+  }
+
+  .nav-item {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+  }
+
+}
