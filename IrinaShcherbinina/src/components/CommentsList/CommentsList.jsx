@@ -1,14 +1,15 @@
 import './CommentsList.scss';
 
 
-import React, { Component } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 
 //помогает проверять входные параметры
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Comment from 'components/Comment';
 
-export default class CommentsList extends Component {
+export default class CommentsList extends PureComponent {
 	//описываем параметры, которые используем
 	static propTypes = {
 		comments: PropTypes.arrayOf(
@@ -26,13 +27,16 @@ static defaultProps ={
 }
 
 	render() {
-		const {comments} = this.props;
+		const {comments, onLoadMore } = this.props;
 		
 		return (
+			<Fragment>
 			<ul className="CommentsList">
-				{comments.map((comment) => <li key={comment.id}><Comment author={comment.author} message={comment.message}/></li>)}
+				{comments.map((comment) => <li key={comment.id}><Link to={`/comments/${comment.id}`}><Comment {...comment} /></Link></li>)}
 				
 			</ul>
+				<button onClick={onLoadMore}>Load more</button>
+			</Fragment>
 		);
 }
 }
