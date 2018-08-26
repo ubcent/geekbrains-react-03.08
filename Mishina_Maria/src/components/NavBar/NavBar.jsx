@@ -26,7 +26,7 @@ export default class NavBar extends Component {
     render() {
         return (
             <Fragment>
-                <Navbar color="dark" dark expand="lg">
+                <Navbar light expand="lg" fixed="top">
                     <Container>
                         <NavbarBrand href="#">Start Bootstrap</NavbarBrand>
                         <NavbarToggler onClick={this.toggle}  data-toggle="collapse" data-target="#navbarResponsive"
@@ -37,13 +37,13 @@ export default class NavBar extends Component {
                                     <NavLink href="#">Home</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#">About</NavLink>
+                                    <NavLink href="#">Blog</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#">Services</NavLink>
+                                    <NavLink href="#">Comments</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#">Contact</NavLink>
+                                    <NavLink href="#">Users</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

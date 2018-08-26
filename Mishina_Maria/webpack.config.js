@@ -32,7 +32,17 @@ module.exports = {
                     fallback: 'style-loader',
                     use: ['css-loader','sass-loader']
                 })
-            }
+            },
+            {
+                test: /\.(jpg|png|gif|svg)$/,
+                use: [
+                    {loader: 'file-loader',
+                        options: {
+                            name: '../img/[name].[ext]'
+                        }
+                    },
+                ],
+            },
         ]
     },
     plugins: [
@@ -44,4 +54,4 @@ module.exports = {
             filename: 'index.html',
         })
     ]
-}
+};

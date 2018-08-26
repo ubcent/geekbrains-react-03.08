@@ -1,18 +1,15 @@
-import React, {Component} from 'react';
-import { Container, Row, Col} from 'reactstrap';
+import React, {Component,Fragment} from 'react';
 
-import Post from '../Post';
-import Widgets from '../Widgets';
+import Header from '../Header';
+import Block from '../Block';
 
 export default class Layout extends Component {
     render() {
         return (
-            <Container>
-                <Row>
-                    <Col xs="lg-8"><Post/></Col>
-                    <Col xs="md-4"><Widgets/></Col>
-                </Row>
-            </Container>
+            <Fragment>
+                <Header/>
+                <Block/>
+            </Fragment>
         );
     }
 }
