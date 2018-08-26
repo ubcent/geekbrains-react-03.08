@@ -8,7 +8,7 @@ export default class LoginButton extends Component {
     const { text } = this.props;
 
     return (
-      <button id="loginButton" className="btn btn-sm btn-dark">{text}</button>
+      <button id="loginButton" className="btn btn-sm btn-secondary">{text}</button>
     );
   }
 }

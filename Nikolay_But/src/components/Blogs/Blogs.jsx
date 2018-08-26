@@ -28,10 +28,14 @@ export default class Blogs extends Component {
     return (
       <Fragment>
         <div className="Blogs">
-          {blogs.map((blog) => <div key={blog.id} className="Blogs__blog">
-            <p>ID {blog.id}: <Link to={`/blogs/${blog.id}`}>{blog.title}</Link></p>
-            <p>{blog.body}</p>
-          </div>)}
+          {blogs.map((blog) =>
+            <div class="card top-15" key={blog.id}>
+              <div class="card-body">
+                <h5 class="card-title">ID {blog.id}: <Link to={`/blogs/${blog.id}`}>{blog.title}</Link></h5>
+                <p class="card-text">{blog.body}</p>
+              </div>
+            </div>
+          )}
         </div>
         <button onClick={onLoadMore}>Load More</button>
       </Fragment>

@@ -1,9 +1,14 @@
-// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
+import {
+  Container,
+  Row,
+  Col,
+} from 'reactstrap';
 
 import routes from './routes';
 import store from './store';
@@ -13,6 +18,8 @@ import Layout from 'components/Layout';
 import Sidebar from 'components/Sidebar';
 import Content from 'components/Content';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
+import LoginButton from 'components/LoginButton';
 
 
 const menuItems = [
@@ -46,8 +53,8 @@ const sidebarItems = [
   },
   {
     id: 1,
-    label: 'New articles',
-    href: '/new'
+    label: 'Top rated',
+    href: '/top'
   },
 ];
 
@@ -92,14 +99,26 @@ class App extends Component {
           <Fragment>
             <Header>I'm header</Header>
             <Layout className="layout row">
-              <Menu size="big" items={menuItems}></Menu>
-              <Sidebar items={sidebarItems} />
-              <Content articles={articles}>
-                <Switch>
-                  {routes.map((route, idx) => <Route key={idx} {...route} />)}
-                </Switch>
-              </Content>
-              <footer>I'm footer</footer>
+              <Container>
+                <Row>
+                  <Col xs={{size: 12, order: 1, offset: 0}}>
+                    <Menu size="big" items={menuItems}></Menu>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={{size: 3, order: 1, offset: 0}}>
+                    <Sidebar items={sidebarItems} />
+                  </Col>
+                  <Col xs={{size: 9, order: 1, offset: 0}}>
+                    <Content>
+                      <Switch>
+                        {routes.map((route, idx) => <Route key={idx} {...route} />)}
+                      </Switch>
+                    </Content>
+                  </Col>
+                </Row>
+                <Footer />
+              </Container>
             </Layout>
           </Fragment>
         </BrowserRouter>

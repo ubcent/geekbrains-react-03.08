@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { load } from 'actions/comments';
 import CommentsList from 'components/CommentsList';
 
-export default class CommentsListContainer extends PureComponent {
+class CommentsListContainer extends PureComponent {
   componentDidMount() {
     const { loadComments } = this.props;
 

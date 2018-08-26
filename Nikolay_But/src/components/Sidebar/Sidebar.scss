@@ -1,0 +1,16 @@
+.sidebar {
+  /* background-color: #F5F5F5;
+  width: 240px;
+  border: 1px solid;
+  box-sizing: border-box; */
+
+}
+
+.card {
+  &-margin {
+    &-top {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+}
