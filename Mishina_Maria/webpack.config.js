@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -33,16 +34,6 @@ module.exports = {
                     use: ['css-loader','sass-loader']
                 })
             },
-            {
-                test: /\.(jpg|png|gif|svg)$/,
-                use: [
-                    {loader: 'file-loader',
-                        options: {
-                            name: '../img/[name].[ext]'
-                        }
-                    },
-                ],
-            },
         ]
     },
     plugins: [
@@ -52,6 +43,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname,'src','index.html'),
             filename: 'index.html',
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, 'src', 'img'),
+            to: path.resolve(__dirname, 'dist', 'img')
+        }]),
     ]
 };

@@ -11,8 +11,8 @@ export default class Header extends Component {
   
     render() {
     return(
-      <header className="masthead">
-        <div className="overlay"></div>
+      <header className="masthead" style={{backgroundImage: url('./img/about-bg.jpg')}}>
+        <div className="overlay"/>
         <Container>
             <Row>
                 <Col className="col-lg-8 col-md-10 mx-auto">
