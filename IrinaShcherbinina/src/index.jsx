@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import CommentsList from 'containers/CommentsListContainer';
 import HomePage from 'components/HomePage';
 
 import routes from './routes';
+import store from './store';
 import Header from 'components/Header';
 
 class App extends Component {
@@ -29,7 +31,7 @@ class App extends Component {
 		
 		return (
 			
-		
+		<Provider store={store}>
 				<BrowserRouter>
 				<Fragment>
 					<Header>I'm header</Header>
@@ -38,9 +40,9 @@ class App extends Component {
 					 
 					</Switch>
 					<footer>I'm footer</footer>
-					</Fragment>
-					</BrowserRouter>
-				
+				</Fragment>
+				</BrowserRouter>
+		</Provider>
 		
 		)
 	}
