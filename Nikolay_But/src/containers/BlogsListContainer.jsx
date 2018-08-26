@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
 
-import Blogs from 'components/Blogs';
+import BlogsList from 'components/Blogs';
 
-export default class BlogsContainer extends PureComponent {
+export default class BlogsListContainer extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -41,7 +41,7 @@ export default class BlogsContainer extends PureComponent {
     const {blogs, loading} = this.state;
 
     return (
-      loading ? 'Loading' : <Blogs onLoadMore={this.handleLoadMore} blogs={blogs} />
+      loading ? 'Loading' : <BlogsList onLoadMore={this.handleLoadMore} blogs={blogs} />
     )
   }
 }

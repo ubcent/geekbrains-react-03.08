@@ -4,12 +4,12 @@ import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import routes from './routes';
+import routes from 'routes';
 
-import Menu from './components/Menu';
-import Layout from './components/Layout';
-import Sidebar from './components/Sidebar';
-import Content from './components/Content';
+import Menu from 'components/Menu';
+import Layout from 'components/Layout';
+import Sidebar from 'components/Sidebar';
+import Content from 'components/Content';
 import Header from 'components/Header';
 
 

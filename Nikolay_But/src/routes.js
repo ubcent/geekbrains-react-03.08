@@ -1,7 +1,7 @@
 import CommentsListContainer from 'containers/CommentsListContainer';
 import CommentContainer from 'containers/CommentContainer';
 import HomePage from 'components/HomePage';
-import BlogsContainer from 'containers/BlogsContainer';
+import BlogsListContainer from 'containers/BlogsListContainer';
 import BlogContainer from 'containers/BlogContainer';
 
 export default [
@@ -21,7 +21,7 @@ export default [
     path: '/comments/:id',
   },
   {
-    component: BlogsContainer,
+    component: BlogsListContainer,
     exact: true,
     path: '/blogs/',
   },
