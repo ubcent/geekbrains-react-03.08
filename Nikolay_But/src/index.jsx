@@ -1,10 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Provider} from 'react-redux';
 
-import routes from 'routes';
+import routes from './routes';
+import store from './store';
 
 import Menu from 'components/Menu';
 import Layout from 'components/Layout';
@@ -79,28 +81,29 @@ class App extends Component {
     this.setState({
       comments: comments.concat([comment]),
     })
-    console.log('comment', comment);
   }
 
   render() {
     const {comments, blogs, users} = this.state;
 
     return (
-      <BrowserRouter>
-        <Fragment>
-          <Header>I'm header</Header>
-          <Layout className="layout row">
-            <Menu size="big" items={menuItems}></Menu>
-            <Sidebar items={sidebarItems} />
-            <Content articles={articles}>
-              <Switch>
-                {routes.map((route, idx) => <Route key={idx} {...route} />)}
-              </Switch>
-            </Content>
-            <footer>I'm footer</footer>
-          </Layout>
-        </Fragment>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Fragment>
+            <Header>I'm header</Header>
+            <Layout className="layout row">
+              <Menu size="big" items={menuItems}></Menu>
+              <Sidebar items={sidebarItems} />
+              <Content articles={articles}>
+                <Switch>
+                  {routes.map((route, idx) => <Route key={idx} {...route} />)}
+                </Switch>
+              </Content>
+              <footer>I'm footer</footer>
+            </Layout>
+          </Fragment>
+        </BrowserRouter>
+      </Provider>
     )
   }
 }

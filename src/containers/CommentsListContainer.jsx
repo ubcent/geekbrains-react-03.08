@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { load } from 'actions/comments';
-import CommentList from 'components/CommentsList';
+import CommentsList from 'components/CommentsList';
 
 class CommentsListContainer extends PureComponent {
   componentDidMount() {
@@ -14,7 +14,7 @@ class CommentsListContainer extends PureComponent {
   render() {
     const { comments, loading } = this.props;
     return (
-      loading ? 'Loading...' : <CommentList comments={comments} />
+      loading ? 'Loading...' : <CommentsList comments={comments} />
     )
   }
 }

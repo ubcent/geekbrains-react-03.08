@@ -1,47 +1,37 @@
 import React, {PureComponent} from 'react';
+import { connect } from 'react-redux';
 
+import { load } from 'actions/comments';
 import CommentsList from 'components/CommentsList';
 
 export default class CommentsListContainer extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      comments: [],
-      page: 1,
-    }
-  }
-
-  loadMore = () => {
-    const {page} = this.state;
-    fetch(`https://jsonplaceholder.typicode.com/comments?_page=${page}&_limit=10`)
-      .then((response) => response.json())
-      .then((comments) => {
-        this.setState((prevState) => ({
-          comments: prevState.comments.concat(
-            comments.map((comment) => ({id: comment.id, author: comment.name, message: comment.body}))
-          ),
-          page: prevState.page + 1,
-          loading: false,
-        }));
-      });
-  }
-
   componentDidMount() {
-    this.loadMore();
-  }
+    const { loadComments } = this.props;
 
-  handleLoadMore = (event) => {
-    this.loadMore();
-    event.preventDefault();
+    loadComments();
   }
 
   render() {
-    const {comments, loading} = this.state;
-
+    const { comments, loading } = this.props;
     return (
-      loading ? 'Loading...' : <CommentsList onLoadMore={this.handleLoadMore} comments={comments} />
+      loading ? 'Loading...' : <CommentsList comments={comments} />
     )
   }
 }
+
+function mapStateToProps(state, props) {
+  return {
+    ...props,
+    loading: state.comments.loading,
+    comments: state.comments.entities,
+  }
+}
+
+function mapDispatchToProps(dispatch, props) {
+  return {
+    ...props,
+    loadComments: () => load(dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsListContainer);
