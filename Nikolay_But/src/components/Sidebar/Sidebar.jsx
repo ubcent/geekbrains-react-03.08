@@ -29,10 +29,10 @@ export default class Sidebar extends Component {
 
     return (
       <div className="sidebar">
-        <div class="card card-margin-top">
-          <div class="card-header">Categories</div>
-          <div class="card-body">
-            <ul class="list-group list-group-flush">{items.map((item) => <li class="list-group-item"><a class="card-text" href={item.href} key={item.id}>{item.label}</a></li>)}</ul>
+        <div className="card card-margin-top">
+          <div className="card-header">Categories</div>
+          <div className="card-body">
+            <ul className="list-group list-group-flush">{items.map((item) => <li className="list-group-item" key={item.id}><a className="card-text" href={item.href}>{item.label}</a></li>)}</ul>
           </div>
         </div>
       </div>

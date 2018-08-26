@@ -3,11 +3,9 @@ import './BlogsList.scss';
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-
-import Blog from 'components/Blog';
+import { Button } from 'reactstrap';
 
 export default class BlogsList extends Component {
-
   static propTypes = {
     blogs: PropTypes.arrayOf(
       PropTypes.shape({
@@ -29,15 +27,15 @@ export default class BlogsList extends Component {
       <Fragment>
         <div className="BlogsList">
           {blogs.map((blog) =>
-            <div class="card top-15" key={blog.id}>
-              <div class="card-body">
-                <h5 class="card-title">ID {blog.id}: <Link to={`/blogs/${blog.id}`}>{blog.title}</Link></h5>
-                <p class="card-text">{blog.body}</p>
+            <div className="card top-15" key={blog.id}>
+              <div className="card-body">
+                <h5 className="card-title">ID {blog.id}: <Link to={`/blogs/${blog.id}`}>{blog.title}</Link></h5>
+                <p className="card-text">{blog.body}</p>
               </div>
             </div>
           )}
         </div>
-        <button onClick={onLoadMore}>Load More</button>
+        <Button color="secondary" size="lg" block onClick={onLoadMore}>Load More</Button>
       </Fragment>
     );
   }
