@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import { load } from 'actions/comments';
+import { load } from 'actions/blogs';
 import BlogsList from 'components/BlogsList';
 
 class BlogsListContainer extends PureComponent {
   componentDidMount() {
-    const { loadMoreBlogs } = this.props;
+    const { loadBlogs } = this.props;
 
-    loadMoreBlogs();
+    loadBlogs();
   }
 
   render() {
@@ -31,7 +31,7 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch, props) {
   return {
     ...props,
-    loadMoreBlogs: () => load(dispatch),
+    loadBlogs: () => load(dispatch),
   }
 }
 

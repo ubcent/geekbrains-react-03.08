@@ -2,7 +2,6 @@ import { createAction } from 'redux-actions';
 
 export const load = (dispatch) => {
   dispatch(loadStart());
-  // fetch('https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10')
   fetch('https://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
     .then(

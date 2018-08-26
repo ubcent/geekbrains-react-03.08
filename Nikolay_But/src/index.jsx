@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.css';
 
-import React, {Component, Fragment} from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import {
   Container,
   Row,
@@ -58,7 +58,7 @@ const sidebarItems = [
   },
 ];
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
 
