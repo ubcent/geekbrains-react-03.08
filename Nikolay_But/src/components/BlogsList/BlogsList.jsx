@@ -1,4 +1,4 @@
-import './Blogs.scss';
+import './BlogsList.scss';
 
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 import Blog from 'components/Blog';
 
-export default class Blogs extends Component {
+export default class BlogsList extends Component {
 
   static propTypes = {
     blogs: PropTypes.arrayOf(
@@ -27,7 +27,7 @@ export default class Blogs extends Component {
 
     return (
       <Fragment>
-        <div className="Blogs">
+        <div className="BlogsList">
           {blogs.map((blog) =>
             <div class="card top-15" key={blog.id}>
               <div class="card-body">

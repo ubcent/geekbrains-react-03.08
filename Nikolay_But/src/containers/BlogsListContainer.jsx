@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 
-import BlogsList from 'components/Blogs';
+import BlogsList from 'components/BlogsList';
 
 export default class BlogsListContainer extends PureComponent {
   constructor(props) {
