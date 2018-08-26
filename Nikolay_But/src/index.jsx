@@ -58,19 +58,6 @@ const sidebarItems = [
   },
 ];
 
-const articles = [
-  {
-    id: 0,
-    label: 'All articles',
-    href: '/all'
-  },
-  {
-    id: 1,
-    label: 'New articles',
-    href: '/new'
-  },
-];
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -87,6 +74,7 @@ class App extends Component {
 
     this.setState({
       comments: comments.concat([comment]),
+      blogs: blogs.concat([blog]),
     })
   }
 

@@ -1,47 +1,38 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 
+import { load } from 'actions/comments';
 import BlogsList from 'components/BlogsList';
 
-export default class BlogsListContainer extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      blogs: [],
-      page: 1,
-    }
-  }
-
-  loadMore = () => {
-    const {page} = this.state;
-    fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10`)
-      .then((response) => response.json())
-      .then((blogs) => {
-        this.setState((prevState) => ({
-          blogs: prevState.blogs.concat(
-            blogs.map((blog) => ({id: blog.id, title: blog.title, body: blog.body}))
-          ),
-          page: prevState.page + 1,
-          loading: false,
-        }));
-      });
-  }
-
+class BlogsListContainer extends PureComponent {
   componentDidMount() {
-    this.loadMore();
-  }
+    const { loadMoreBlogs } = this.props;
 
-  handleLoadMore = (event) => {
-    this.loadMore();
-    event.preventDefault();
+    loadMoreBlogs();
   }
 
   render() {
-    const {blogs, loading} = this.state;
+    const { blogs, loading } = this.props;
 
     return (
-      loading ? 'Loading' : <BlogsList onLoadMore={this.handleLoadMore} blogs={blogs} />
+      loading ? 'Loading...' : <BlogsList blogs={blogs} />
     )
   }
 }
+
+function mapStateToProps(state, props) {
+  return {
+    ...props,
+    loading: state.blogs.loading,
+    blogs: state.blogs.entities,
+  }
+}
+
+function mapDispatchToProps(dispatch, props) {
+  return {
+    ...props,
+    loadMoreBlogs: () => load(dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BlogsListContainer);

@@ -1,11 +1,11 @@
 import './BlogsList.scss';
 
-import React, {Component, Fragment} from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
-export default class BlogsList extends Component {
+export default class BlogsList extends PureComponent {
   static propTypes = {
     blogs: PropTypes.arrayOf(
       PropTypes.shape({
@@ -35,7 +35,7 @@ export default class BlogsList extends Component {
             </div>
           )}
         </div>
-        <Button color="secondary" size="lg" block onClick={onLoadMore}>Load More</Button>
+        <Button color="secondary" size="lg" block onClick={ onLoadMore }>Load More</Button>
       </Fragment>
     );
   }

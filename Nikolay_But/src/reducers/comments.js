@@ -19,7 +19,7 @@ export default handleActions({
       entities: action.payload
         .map((comment) => ({
           id: comment.id,
-          author: comment.name, 
+          author: comment.name,
           message: comment.body
         })),
     };
