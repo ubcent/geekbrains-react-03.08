@@ -1,36 +1,36 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
+import {load} from "actions/users";
+
 import UsersList from '../components/UsersList';
 
-export default class UsersContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            users: [],
-            loading: true,
-        }
-    }
-
+class UsersContainer extends Component {
     componentDidMount() {
-        fetch('http://localhost:8080/src/json/profiles.json')
-            .then((response) => response.json())
-            .then((users) => {
-                this.setState({
-                    users,
-                    loading: false,
-                })
-            });
+        this.props.loadUsers();
     }
-
-    reverse = () => {
-        this.setState({
-            users: this.state.users.reverse(),
-        });
-    };
 
     render() {
-        const {users, loading} = this.state;
+        const {users, loading} = this.props;
         return (
-            loading ? 'Loading...' : <UsersList reverse={this.reverse} users={users}/>
+            !loading && users ? <UsersList users={users}/> : 'Loading...'
         );
     }
 }
+
+function mapToStateProps(state, props) {
+    return {
+        ...props,
+        users: state.users.entities,
+        loading: state.users.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        ...props,
+        loadUsers: () => load(dispatch),
+    }
+}
+
+export default connect(mapToStateProps, mapDispatchToProps)(UsersContainer)

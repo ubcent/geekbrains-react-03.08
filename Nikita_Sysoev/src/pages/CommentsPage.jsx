@@ -16,7 +16,6 @@ export default class CommentsPage extends Component {
                                 Latest comments
                             </h1>
                             <CommentsListContainer/>
-                            <Pagination/>
                         </div>
                         <div className="col-md-4">
                             <Aside/>

@@ -8,7 +8,7 @@ export default class HomePage extends Component {
     render() {
         return (
             <div className="content masthead"
-                 style={{backgroundImage: `url('https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg')`}}>
+                 style={{backgroundImage: `url('./static/img/home-bg.jpg')`}}>
                 <div className="overlay"/>
                 <Wrapper>
                     <div className="flex-wrap">
@@ -26,3 +26,4 @@ export default class HomePage extends Component {
         )
     }
 }
+// style={{backgroundImage: `url('https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg')`}}

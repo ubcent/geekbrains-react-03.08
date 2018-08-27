@@ -146,3 +146,11 @@ div.masthead {
 a, a:focus {
     color: initial;
 }
+
+.pagination {
+    display: block;
+ }
+
+.btn:active:focus, .btn:focus {
+    outline: none;
+}

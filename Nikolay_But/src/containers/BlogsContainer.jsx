@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 
 import Blogs from 'components/Blogs';
 
@@ -9,25 +9,39 @@ export default class BlogsContainer extends PureComponent {
     this.state = {
       loading: true,
       blogs: [],
+      page: 1,
     }
   }
 
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
+  loadMore = () => {
+    const {page} = this.state;
+    fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10`)
       .then((response) => response.json())
-      .then((response) => {
-        this.setState({
-          blogs: response.map((blog) => ({ id: blog.id, author: blog.title, text: blog.body })),
+      .then((blogs) => {
+        this.setState((prevState) => ({
+          blogs: prevState.blogs.concat(
+            blogs.map((blog) => ({id: blog.id, title: blog.title, body: blog.body}))
+          ),
+          page: prevState.page + 1,
           loading: false,
-        })
+        }));
       });
   }
 
+  componentDidMount() {
+    this.loadMore();
+  }
+
+  handleLoadMore = (event) => {
+    this.loadMore();
+    event.preventDefault();
+  }
+
   render() {
-    const { blogs, loading } = this.state;
+    const {blogs, loading} = this.state;
 
     return (
-      loading ? 'Loading' : <Blogs blogs={blogs} />
+      loading ? 'Loading' : <Blogs onLoadMore={this.handleLoadMore} blogs={blogs} />
     )
   }
 }

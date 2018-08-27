@@ -1,0 +1,36 @@
+#menu{
+    background-color: grey;
+   height: 100px;
+}
+.menu a {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    /*отменяет подчеркивание*/
+    padding: 10px 15px;
+    line-height: 51px;
+    text-align: left;
+    align-items: center;
+    margin: 0 10px;
+    color: white;
+
+}
+.menu {
+
+display: flex;
+    list-style-type: none;
+
+    /* задано чтобы центрировать */
+    margin: 0 auto;
+    /* задано чтобы центрировать */
+
+}
+
+.menu-big li a {
+    font-size: 24px;
+}
+
+.menu-small li a {
+    font-size: 16px;
+}

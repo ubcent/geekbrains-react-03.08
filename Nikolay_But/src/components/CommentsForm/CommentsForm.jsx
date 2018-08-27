@@ -1,9 +1,9 @@
 import './CommentsForm.scss';
 
-import React, { Component } from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-export default class CommentsForm extends Component {
+export default class CommentsForm extends PureComponent {
 
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
@@ -25,7 +25,7 @@ export default class CommentsForm extends Component {
   }
 
   handleSubmit = (event) => {
-    const { onSubmit } = this.props;
+    const {onSubmit} = this.props;
 
     if (typeof onSubmit === 'function') {
       onSubmit(this.state);
@@ -35,21 +35,21 @@ export default class CommentsForm extends Component {
 
 
   render() {
-    const { author } = this.state;
+    const {author} = this.state;
 
     return (
       <div className="CommentsForm">
-       <label>
-         Author:
-         <input onChange={this.handleChange} value={author} type='text' name='author'/>
-       </label><br />
+        <label>
+          Author:
+         <input onChange={this.handleChange} value={author} type='text' name='author' />
+        </label><br />
 
-       <label>
-         Comment:<br />
-         <textarea onChange={this.handleChange} name='message'></textarea>
-       </label><br />
+        <label>
+          Comment:<br />
+          <textarea onChange={this.handleChange} name='message'></textarea>
+        </label><br />
 
-       <button onClick={this.handleSubmit}>Send</button>
+        <button onClick={this.handleSubmit}>Send</button>
       </div>
     );
   }
