@@ -2,25 +2,25 @@ import './UsersList.scss';
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+
+import {reverseList} from 'actions/users';
+
 import User from '../User';
 import {Table} from 'reactstrap';
 
-export default class UsersList extends Component {
+class UsersList extends Component {
     static propTypes = {};
     static defaultProps = {};
 
-    reverse = () => {
-        this.props.reverse();
-    };
-
     render() {
-        const {users} = this.props;
+        const {users, reverseList} = this.props;
         return (
             <Table className="UsersList" bordered>
                 <thead>
-                <tr onClick={this.reverse} style={{cursor: 'pointer'}}>
+                <tr style={{cursor: 'pointer'}} onClick={reverseList}>
                     {
-                        Object.keys(users[0]).map((item, index) => {
+                         Object.keys(users[0]).map((item, index) => {
                             return <th key={index}>{item}</th>
                         })
                     }
@@ -28,7 +28,7 @@ export default class UsersList extends Component {
                 </thead>
                 <tbody>
                 {
-                    users.map((obj, index) => {
+                     users.map((obj, index) => {
                         return <User key={index} obj={obj}/>
                     })
                 }
@@ -37,3 +37,12 @@ export default class UsersList extends Component {
         )
     }
 }
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        ...props,
+        reverseList: () => dispatch(reverseList())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(UsersList);

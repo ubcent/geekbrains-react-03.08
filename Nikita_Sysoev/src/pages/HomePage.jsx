@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 
-import Wrapper from '../components/Wrapper';
+import Wrapper from '../components/Wrapper/index';
 import {Button} from 'reactstrap';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
-export default class IndexLayout extends Component {
+export default class HomePage extends Component {
     render() {
         return (
             <div className="content masthead"
-                 style={{backgroundImage: `url('https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg')`}}>
+                 style={{backgroundImage: `url('./static/img/home-bg.jpg')`}}>
                 <div className="overlay"/>
                 <Wrapper>
                     <div className="flex-wrap">
@@ -26,3 +26,4 @@ export default class IndexLayout extends Component {
         )
     }
 }
+// style={{backgroundImage: `url('https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg')`}}

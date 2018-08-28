@@ -19,6 +19,11 @@ html {
     flex-wrap: wrap;
 }
 
+.content {
+    padding-top: 70px;
+    flex: 1;
+}
+
 .active {
     display: block;
 }
@@ -140,4 +145,12 @@ div.masthead {
 
 a, a:focus {
     color: initial;
+}
+
+.pagination {
+    display: block;
+ }
+
+.btn:active:focus, .btn:focus {
+    outline: none;
 }

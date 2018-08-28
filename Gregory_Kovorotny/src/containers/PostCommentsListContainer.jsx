@@ -20,10 +20,13 @@ export default class PostCommentsListContainer extends Component {
 
   handleSubmit = (comment) => { // вот тут будет отправка на сервер новых комментов, для добавки в БД
     const { comments } = this.state;
-    comment.id = 555; // здесь надо генерировать уникальный id коммента - скорее всего получаем от сервера после вставки???
+    const newComment = {
+      ...comment,
+      id: 555,
+    }
 
     this.setState({
-      comments: [comment].concat(comments),
+      comments: [newComment].concat(comments),
     });
   }
 

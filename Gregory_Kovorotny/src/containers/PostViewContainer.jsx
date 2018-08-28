@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import PostView from 'components/PostView';
 
 export default class PostViewContainer extends Component {
-  static propTypes = {
-    filterId: PropTypes.number.isRequired,
-  }
+  static propTypes = {}
 
   constructor(props) {
     super(props);
@@ -18,7 +16,7 @@ export default class PostViewContainer extends Component {
   }
 
   componentDidMount() {
-    const postId = this.props.filterId;
+    const { postId } = this.props.match.params;
 
     fetch(`https://jsonplaceholder.typicode.com/posts?id=${postId}`)
       .then((response) => response.json())

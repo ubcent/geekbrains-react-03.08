@@ -14,7 +14,7 @@ export default class BloggersListContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users?_limit=8')
+    fetch('https://jsonplaceholder.typicode.com/users?_limit=8') // TODO - избегать хардкода
       .then((response) => response.json())
       .then((bloggers) => {
         this.setState({

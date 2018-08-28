@@ -8,7 +8,7 @@ export default class CommentsList extends Component {
     static propTypes = {
         comments: PropTypes.arrayOf(
             PropTypes.shape({
-                id: PropTypes.number.isRequired,
+                id: PropTypes.number,
                 author: PropTypes.string.isRequired,
                 message: PropTypes.string.isRequired
             })

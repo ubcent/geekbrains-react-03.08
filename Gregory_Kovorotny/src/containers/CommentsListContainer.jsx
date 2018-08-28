@@ -1,51 +1,32 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { load } from 'actions/comments';
 
 import CommentsList from 'components/CommentsList';
 
-export default class CommentsListContainer extends Component {
-  static propTypes = {
-    filterId: PropTypes.number,
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      comments: [],
-    }
-  }
+class CommentsListContainer extends Component {
+  // а теперь надо propTypes определять?
+  // они теперь приходят из reducer-а
+  static propTypes = {}
 
   componentDidMount() {
-    const userId = this.props.filterId;
-    fetch(`https://jsonplaceholder.typicode.com/comments`) // если бы делали запрос в БД - то понятно фильтр был бы на стороне БД!
-      .then((response) => response.json())
-      .then((comments) => {
-        if (userId) {
-          fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
-            .then((response) => response.json())
-            .then((posts) => {
-              const userPostsIds = posts.map((post) => post.id)
-              console.log(userPostsIds);
-              this.setState({
-                loading: false,
-                comments: comments.filter((comment) => (userPostsIds.includes(comment.postId)))
-                  .map((comment) => ({ id: comment.id, author: comment.name, message: comment.body, postId: comment.postId })),
-              })
-            });
-        } else {
-          this.setState({
-            loading: false,
-            comments: comments.filter((comment) => (comment.postId < 15))
-              .map((comment) => ({ id: comment.id, author: comment.name, message: comment.body, postId: comment.postId })),
-          })
-        }
-      });
+    const { load } = this.props;
+    const { userId } = this.props.match.params;
+    console.log('didmount');
+    load(userId);
+  }
+
+  componentWillReceiveProps() {
+    const { load } = this.props;
+    const { userId } = this.props.match.params;
+    // //
+    // load();
+    console.log('willreceive');
   }
 
   render() {
-    const { loading, comments } = this.state;
+    const { comments, loading } = this.props;
 
     return (
       <Fragment>
@@ -54,3 +35,22 @@ export default class CommentsListContainer extends Component {
     );
   }
 }
+
+function mapStateToProps(state, props) {
+  console.log('state to props');
+  return ({
+    ...props,
+    loading: state.comments.loading,
+    comments: state.comments.entities,
+  });
+}
+
+function mapDispatchToProps(dispatch, props) {
+  console.log('disp to props');
+  return ({
+    ...props,
+    load: (userId) => load(dispatch, userId),
+  });
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsListContainer);

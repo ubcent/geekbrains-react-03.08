@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import Wrapper from './components/Wrapper';
@@ -10,14 +10,14 @@ import Footer from './components/Footer';
 
 class App extends Component {
     render() {
-        return (
-            <div>
+        return(
+            <Fragment>
                 <Wrapper>
                     <Header/>
                     <Main/>
                     <Footer/>
                 </Wrapper>
-            </div>
+            </Fragment>
         )
     }
 }

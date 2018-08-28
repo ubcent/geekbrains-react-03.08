@@ -1,35 +1,37 @@
 import React, {Component} from 'react';
+
+import {connect} from 'react-redux';
+import {load} from 'actions/posts';
+
 import PostsList from '../components/PostsList';
 
-export default class PostsContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            posts: [],
-            loading: true,
-        }
-    }
-
+class PostsContainer extends Component {
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
-            .then((response) => response.json())
-            .then((posts) => {
-                this.setState({
-                    posts: posts.map((post) => ({
-                        id: post.id,
-                        title: post.title,
-                        text: post.body,
-                    })),
-                    loading: false,
-                })
-            });
+        const {loadPosts} = this.props;
+        loadPosts();
     }
 
     render() {
-        console.log(this.state);
-        const {posts, loading} = this.state;
+        const {posts, loading} = this.props;
         return (
-            loading ? 'Loading...' : <PostsList posts={posts}/>
+            posts && !loading ? <PostsList posts={posts}/> : 'Loading...'
         );
     }
 }
+
+function mapToStateProps(state, props) {
+    return {
+        ...props,
+        posts: state.posts.entities,
+        loading: state.posts.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        ...props,
+        loadPosts: () => load(dispatch),
+    }
+}
+
+export default connect(mapToStateProps, mapDispatchToProps)(PostsContainer);
