@@ -15,7 +15,9 @@ export const load = (dispatch, userId) => {
               dispatch(loadComplete(comments.filter((comment) => userPostsIds.includes(comment.postId))));
             });
         } else {
-          dispatch(loadComplete(comments.filter((comment) => (comment.postId < 5))));
+          const postsCount = parseInt(Math.random() * 15);
+          console.log(postsCount);
+          dispatch(loadComplete(comments.filter((comment) => (comment.postId < postsCount))));
         }
       },
       () => {
