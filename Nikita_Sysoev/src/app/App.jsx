@@ -1,30 +1,40 @@
+import 'cssreboot/reboot.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import React, {Component} from 'react';
-import {Router, Route, browserHistory} from 'react-router';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import store from '../store/store';
 
-import SecondLayout from '../layouts/SecondLayout';
 import BlogPage from '../pages/BlogPage';
 import CommentsPage from '../pages/CommentsPage';
 import PageNotFound from '../pages/PageNotFound';
 import UsersPage from '../pages/UsersPage';
-import IndexLayout from '../layouts/IndexLayout';
-import ParentLayout from '../layouts/ParentLayout';
+import HomePage from '../pages/HomePage';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import PostDetailsPage from '../pages/PostDetailsPage';
 
 export default class App extends Component {
     render() {
         return (
-            <Router history={browserHistory}>
-                <Route component={ParentLayout}>
-                    <Route path="/" component={IndexLayout}/>
-                    <Route component={SecondLayout}>
-                        <Route path="/blog" component={BlogPage}/>
-                        <Route path="/comments" component={CommentsPage}/>
-                        <Route path="/users" component={UsersPage}/>
-                        <Route path="*" component={PageNotFound}/>
-                    </Route>
-                </Route>
-            </Router>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <div className="app">
+                        <Header/>
+                        <Switch>
+                            <Route exact path="/" component={HomePage}/>
+                            <Route exact path="/blog" component={BlogPage}/>
+                            <Route exact path="/comments" component={CommentsPage}/>
+                            <Route exact path="/users" component={UsersPage}/>
+                            <Route exact path="/blog/:id" component={PostDetailsPage}/>
+                            <Route exact path="*" component={PageNotFound}/>
+                        </Switch>
+                        <Footer/>
+                    </div>
+                </BrowserRouter>
+            </Provider>
         )
     }
 }

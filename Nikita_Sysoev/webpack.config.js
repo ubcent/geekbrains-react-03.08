@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -33,11 +34,13 @@ module.exports = {
         ]
     },
     resolve: {
-      extensions: ['.js', '.jsx'],
-        // alias: {
-        //   components: path.resolve(__dirname, 'src', 'components')
-        // containers: path.resolve(__dirname, 'src', 'containers')
-        // },
+        extensions: ['.js', '.jsx'],
+        alias: {
+            // components: path.resolve(__dirname, 'src', 'components'),
+            // containers: path.resolve(__dirname, 'src', 'containers'),
+            actions: path.resolve(__dirname, 'src', 'actions'),
+            reducers: path.resolve(__dirname, 'src', 'reducers'),
+        },
     },
     plugins: [
         new ExtractTextPlugin({
@@ -46,6 +49,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html'),
             filename: 'index.html',
-        })
-    ]
+        }),
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, 'src', 'static'),
+            to: path.resolve(__dirname, 'dist', 'static')
+        }]),
+    ],
+    devServer: {
+        historyApiFallback: true,
+    },
 };

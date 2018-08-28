@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 export default class User extends Component {
     static propTypes = {};
-    
     static defaultProps = {};
     
     render() {

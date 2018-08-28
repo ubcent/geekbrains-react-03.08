@@ -1,18 +1,15 @@
-ul.Pagination {
+.Pagination {
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
-}
+  margin-bottom: 1.5rem; }
 
 .page-item:first-child .page-link {
   margin-left: 0;
   border-top-left-radius: .25rem;
-  border-bottom-left-radius: .25rem;
-}
+  border-bottom-left-radius: .25rem; }
 
 .page-link:not(:disabled):not(.disabled) {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .page-link {
   position: relative;
@@ -22,18 +19,17 @@ ul.Pagination {
   line-height: 1.25;
   color: #007bff;
   background-color: #fff;
-  border: 1px solid #dee2e6;
-}
+  border: 1px solid #dee2e6; }
 
 .page-item.disabled .page-link {
   color: #6c757d;
   pointer-events: none;
   cursor: auto;
   background-color: #fff;
-  border-color: #dee2e6;
-}
+  border-color: #dee2e6; }
 
 .page-item:last-child .page-link {
   border-top-right-radius: .25rem;
-  border-bottom-right-radius: .25rem;
-}
+  border-bottom-right-radius: .25rem; }
+
+/*# sourceMappingURL=Pagination.css.map */
