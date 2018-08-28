@@ -1,44 +1,38 @@
 import React, {PureComponent} from 'react';
-import CommentsList from 'components/CommentsList';
+import UsersList from 'components/UsersList';
 
-    export  default class CommentsListContainer extends PureComponent {
+    export  default class UsersListContainer extends PureComponent {
 
         constructor(props){
             super(props);
             this.state = {
+                users: [],
                 loading: true,
-                comments: [],
-                page: 1,
             }
         }
 
-        loadMore() {
-            const {page} = this.state;
-            fetch(`http://jsonplaceholder.typicode.com/comments?_page=${page}&_limit=10`)
+        componentDidMount() {
+            fetch(`http://jsonplaceholder.typicode.com/users`)
                 .then((response) => response.json())
-                .then((comments) => {
-                    this.setState((prevState) => ({
-                        comments: prevState.comments.concat(comments.map((comment) =>
-                            ({id: comment.id, author: comment.name, message: comment.body}))),
-                        page: prevState.page + 1,
+                .then((users) => {
+                    this.setState({
+                        users: users.map((user) => ({
+                            id: user.id,
+                            name: user.name,
+                            username: user.username,
+                            email: user.email,
+                            phone: user.phone,
+                            website: user.website,
+                        })),
                         loading: false,
-                    }));
+                    })
                 })
         }
 
-        componentDidMount() {
-            this.loadMore();
-        }
-
-        handleLoadMore = (event) => {
-            event.preventDefault();
-            this.loadMore();
-        };
-
         render () {
-            const {comments,loading} = this.state;
+            const {users,loading} = this.state;
             return(
-                loading ? 'Loading' : <CommentsList onLoadMore={this.handleLoadMore} comments={comments}/>
+                loading ? 'Loading' : <UsersList users={users}/>
             )
     }
 }

@@ -13,6 +13,7 @@ export default class Comment extends Component {
     <Fragment>
       <h5 className="mt-0">{author}</h5>
       <div>{message}</div>
+      <a href="/comments">links on post</a>
     </Fragment>
     );
   }

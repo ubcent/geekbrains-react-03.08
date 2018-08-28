@@ -35,7 +35,7 @@ export default class CommentsList extends Component {
                 </Media>
             </Media>)}
         </ul>
-        <button onClick={onLoadMore}>Load More</button>
+        <button onClick={onLoadMore} className="btn-more-commetns">Load More</button>
         </Fragment>
     )
   }  
