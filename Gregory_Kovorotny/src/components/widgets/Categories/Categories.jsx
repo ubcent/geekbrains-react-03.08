@@ -21,12 +21,21 @@ export default class Categories extends Component {
     categories: [],
   }
 
+  divideCategoriesInColumns(categories) {
+    // это один вариант формирования левого/правого столбца
+    // const categoriesLeft = categories.filter((category, idx) => idx % 2 === 0);
+    // const categoriesRight = categories.filter((category, idx) => idx % 2 === 1);
+
+    // а это второй вариант формирования
+    const categoriesLeft = categories.slice(0, categories.length / 2 + 1);
+    const categoriesRight = categories.slice(categories.length / 2 + 1, categories.length);
+
+    return ({ categoriesLeft, categoriesRight });
+  }
+
   render() {
     const { categories } = this.props;
-    const count = categories.length;
-    const categoriesLeft = categories.filter((category, idx) => idx % 2 === 0);
-    const categoriesRight = categories.filter((category, idx) => idx % 2 === 1);
-
+    const { categoriesLeft, categoriesRight } = this.divideCategoriesInColumns(categories);
 
     return (
       <div className="categories my-4">

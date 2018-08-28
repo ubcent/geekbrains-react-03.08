@@ -2,6 +2,7 @@ import './PostView.scss';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import PostCommentsListContainer from 'containers/PostCommentsListContainer';
 
@@ -24,7 +25,7 @@ export default class PostView extends Component {
       <div className="post-view mt-4">
         <h1>{title}</h1>
         <hr />
-        <p>{date.toISOString()}</p>
+        <p>{moment(date).format('Do MMM YYYY')}</p>
         <hr />
         <img className="img-fluid rounded" src={imgUrl} alt="post image 900x300" />
         <hr />

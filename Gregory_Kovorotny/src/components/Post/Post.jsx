@@ -1,7 +1,9 @@
 import './Post.scss';
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import {
   Card,
   CardBody,
@@ -24,21 +26,21 @@ export default class Post extends Component {
 
   render() {
     const { id, imgUrl, title, body, date, author } = this.props;
-    const postUrl = '#/post/' + id;
+    const postUrl = '/post/' + id;
 
     return (
       <div className="post">
         <Card>
           <CardImg top width="100%" src={imgUrl} alt="post img 750x300" />
           <CardBody>
-            <CardTitle>{title}</CardTitle>
+            <CardTitle>{title}: id {id}</CardTitle>
             <CardText>
               {body}
           </CardText>
-          <a href={postUrl}><Button color="primary">Read More ...</Button></a>
+          <Link to={postUrl}><Button color="primary">Read More ...</Button></Link>
           </CardBody>
           <CardFooter className="text-muted">
-            Posted on {date.toISOString()} by <a href="#">{author}</a>
+            Posted on {moment(date).format('YYYY-MM-DD')} by <a href="#">{author}</a>
           </CardFooter>
         </Card>
       </div>

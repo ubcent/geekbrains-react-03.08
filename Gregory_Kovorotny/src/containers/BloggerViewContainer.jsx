@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import BloggerView from 'components/BloggerView';
 
 export default class BloggerViewContainer extends Component {
-  static propTypes = {
-    filterId: PropTypes.number.isRequired,
-  }
+  static propTypes = {}
 
   constructor(props) {
     super(props);
@@ -18,7 +16,7 @@ export default class BloggerViewContainer extends Component {
   }
 
   componentDidMount() {
-    const userId = this.props.filterId;
+    const { userId } = this.props.match.params;
 
     fetch(`https://jsonplaceholder.typicode.com/users?id=${userId}`)
       .then((response) => response.json())
