@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const Comment = function(props) {
   const { author, message, id, postId } = props;
-  const postUrl = '#/post/' + postId;
+  const postUrl = '/post/' + postId;
 
   return (
     <div className="comment">

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import cookie from 'react-cookie';
+import { Provider } from 'react-redux';
 
 import MenuHeader from 'components/MenuHeader';
 import Footer from 'components/Footer';
@@ -13,6 +14,7 @@ import {
 } from 'reactstrap';
 
 import Content from 'root/Content'; // временное решенеие, надо будет с БД грузить в будущем?
+import store from 'root/store';
 
 export class App extends Component {
   constructor(props) {
@@ -33,22 +35,24 @@ export class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <Fragment>
-          <MenuHeader items={Content.menu} />
-          <PageContent />
-          <Footer />
-          <Modal centered isOpen={!this.state.noGreetingModal} toggle={this.handleModalClose}>
-            <ModalBody>
-              <p>We greet you at The Blog Place!</p>
-              <p>Here you can start your blog, view other blogger's posts, and even comment!</p>
-            </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.handleModalClose}>Got it!</Button>
-            </ModalFooter>
-          </Modal>
-        </Fragment>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Fragment>
+            <MenuHeader items={Content.menu} />
+            <PageContent />
+            <Footer />
+            <Modal centered isOpen={!this.state.noGreetingModal} toggle={this.handleModalClose}>
+              <ModalBody>
+                <p>We greet you at The Blog Place!</p>
+                <p>Here you can start your blog, view other blogger's posts, and even comment!</p>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onClick={this.handleModalClose}>Got it!</Button>
+              </ModalFooter>
+            </Modal>
+          </Fragment>
+        </BrowserRouter>
+      </Provider>
     );
   }
 }
