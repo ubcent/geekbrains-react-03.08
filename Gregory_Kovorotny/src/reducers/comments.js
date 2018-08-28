@@ -17,7 +17,7 @@ export default handleActions({
     return ({
       loading: false,
       entities: action.payload
-        .map((comment) => ({
+        .map((comment) => ({ // map лучше здесь (в reducers) делать, или в actions ?
           id: comment.id,
           author: comment.name,
           message: comment.body,

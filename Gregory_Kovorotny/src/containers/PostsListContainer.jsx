@@ -80,7 +80,6 @@ export default class PostsListContainer extends Component {
     }, () => { // иначе не успевал обновить стейт на 3-6 миллисикунд
       this.loadPosts();
     });
-
   }
 
   componentDidMount() {

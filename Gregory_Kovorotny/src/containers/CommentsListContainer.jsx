@@ -12,9 +12,17 @@ class CommentsListContainer extends Component {
 
   componentDidMount() {
     const { load } = this.props;
-    const { userId } = this.props.match.params; // TODO - разобраться как пробрасывать в action
+    const { userId } = this.props.match.params;
+    console.log('didmount');
+    load(userId);
+  }
 
-    load();
+  componentWillReceiveProps() {
+    const { load } = this.props;
+    const { userId } = this.props.match.params;
+    // //
+    // load();
+    console.log('willreceive');
   }
 
   render() {
@@ -29,6 +37,7 @@ class CommentsListContainer extends Component {
 }
 
 function mapStateToProps(state, props) {
+  console.log('state to props');
   return ({
     ...props,
     loading: state.comments.loading,
@@ -37,48 +46,11 @@ function mapStateToProps(state, props) {
 }
 
 function mapDispatchToProps(dispatch, props) {
+  console.log('disp to props');
   return ({
     ...props,
-    load: () => load(dispatch),
+    load: (userId) => load(dispatch, userId),
   });
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentsListContainer);
-
-/* СТАРЫЙ КОД - пока оставляю для сравнения в будущем
-constructor(props) {
-  super(props);
-
-  this.state = {
-    loading: true,
-    comments: [],
-  }
-}
-
-componentDidMount() {
-  const { userId } = this.props.match.params;
-
-  fetch(`https://jsonplaceholder.typicode.com/comments`) // если бы делали запрос в БД - то понятно фильтр был бы на стороне БД!
-    .then((response) => response.json())
-    .then((comments) => {
-      if (typeof userId !== 'undefined') {
-        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
-          .then((response) => response.json())
-          .then((posts) => {
-            const userPostsIds = posts.map((post) => post.id)
-            this.setState({
-              loading: false,
-              comments: comments.filter((comment) => (userPostsIds.includes(comment.postId)))
-                .map((comment) => ({ id: comment.id, author: comment.name, message: comment.body, postId: comment.postId })),
-            })
-          });
-      } else {
-        this.setState({
-          loading: false,
-          comments: comments.filter((comment) => (comment.postId < 15))
-            .map((comment) => ({ id: comment.id, author: comment.name, message: comment.body, postId: comment.postId })),
-        })
-      }
-    });
-}
-*/
