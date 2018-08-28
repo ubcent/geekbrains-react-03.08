@@ -23,27 +23,28 @@ export default class NavBar extends Component {
             isOpen: !this.state.isOpen
         });
     }
+
     render() {
         return (
             <Fragment>
-                <Navbar light expand="lg" fixed="top">
+                <Navbar expand="lg" dark color="dark" fixed="top" >
                     <Container>
-                        <NavbarBrand href="#">Start Bootstrap</NavbarBrand>
+                        <NavbarBrand href="/">THE BLOG PLACE</NavbarBrand>
                         <NavbarToggler onClick={this.toggle}  data-toggle="collapse" data-target="#navbarResponsive"
                                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"/>
                         <Collapse isOpen={this.state.isOpen} navbar id="navbarResponsive">
                             <Nav className="ml-auto" navbar>
-                                <NavItem active>
-                                    <NavLink href="#">Home</NavLink>
+                                <NavItem >
+                                    <NavLink href="/">Home</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#">Blog</NavLink>
+                                    <NavLink href="/blog">Blog</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#">Comments</NavLink>
+                                    <NavLink href="/comments">Comments</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#">Users</NavLink>
+                                    <NavLink href="/users">Users</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

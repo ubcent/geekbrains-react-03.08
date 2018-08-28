@@ -1,6 +1,6 @@
 import './CommentsList.scss';
 
-import React, {Component} from 'react';
+import React, {Component,Fragment} from 'react';
 import PropTypes from 'prop-types';
 import Comment from 'components/Comment';
 
@@ -22,8 +22,9 @@ export default class CommentsList extends Component {
   };
   
   render() {
-    const {comments} = this.props;
+    const {comments, onLoadMore} = this.props;
     return(
+        <Fragment>
         <ul>{comments.map((comment) =>
             <Media className="mb-4" key={comment.id}>
                 <img src="http://placehold.it/50x50" alt="image" className="d-flex mr-3 rounded-circle"/>
@@ -34,6 +35,8 @@ export default class CommentsList extends Component {
                 </Media>
             </Media>)}
         </ul>
+        <button onClick={onLoadMore}>Load More</button>
+        </Fragment>
     )
   }  
 }

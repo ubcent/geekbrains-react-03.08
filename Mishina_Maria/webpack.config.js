@@ -48,5 +48,6 @@ module.exports = {
             from: path.resolve(__dirname, 'src', 'img'),
             to: path.resolve(__dirname, 'dist', 'img')
         }]),
-    ]
+    ],
+    devServer: {historyApiFallback: true,},
 };

@@ -1,0 +1,39 @@
+.Blog {
+  margin-bottom: 50px;
+  display: block;
+}
+
+.bg {
+  display: block;
+  height: 350px;
+  width: 100%;
+  margin-bottom: 50px;
+  background: no-repeat center center;
+  background-color: #868e96;
+  background-attachment: scroll;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: #ddd;
+}
+
+.overlay2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 350px;
+  width: 100%;
+  background-color: #212529;
+  opacity: .5;
+  box-sizing: border-box;
+}
+
+.posts-heading {
+  text-align: center;
+  padding: 150px 0;
+  color: #fff;
+  box-sizing: border-box;display: block;
+}
