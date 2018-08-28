@@ -10,13 +10,19 @@ class CommentsListContainer extends Component {
   // они теперь приходят из reducer-а
   static propTypes = {}
 
+  componentDidMount() {
+    const { load } = this.props;
+    const { userId } = this.props.match.params; // TODO - разобраться как пробрасывать в action
+
+    load();
+  }
+
   render() {
-    const { comments, load } = this.props;
+    const { comments, loading } = this.props;
 
     return (
       <Fragment>
-        <button onClick={load}>Load Comments</button>
-        <CommentsList comments={comments} />
+        {loading ? 'loading' : <CommentsList comments={comments} />}
       </Fragment>
     );
   }
@@ -25,6 +31,7 @@ class CommentsListContainer extends Component {
 function mapStateToProps(state, props) {
   return ({
     ...props,
+    loading: state.comments.loading,
     comments: state.comments.entities,
   });
 }
@@ -32,13 +39,13 @@ function mapStateToProps(state, props) {
 function mapDispatchToProps(dispatch, props) {
   return ({
     ...props,
-    load: () => dispatch(load()),
+    load: () => load(dispatch),
   });
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentsListContainer);
 
-/*
+/* СТАРЫЙ КОД - пока оставляю для сравнения в будущем
 constructor(props) {
   super(props);
 
