@@ -1,35 +1,48 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from 'reactstrap';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import Menu from './components/Menu/';
+import CommentsList from 'containers/CommentsListContainer';
+import HomePage from 'components/HomePage';
 
-const menuItems = [{
-	label: 'Home',
-	href: '/'
-},
-{label: 'News',
- href: '/new'
- },
- ]
+import routes from './routes';
+import store from './store';
+import Header from 'components/Header';
 
 class App extends Component {
-	//процесс отрисовки компонента метод render
+	constructor(props){
+		super(props);
+		this.state = {
+			comments: [],
+		}
+	}
 	
+	handleSubmit = (comment) => {
+		const {comments} = this.state;
+		
+		this.setState({
+			comments: comments.concat([comment]),
+		})
+	}
 	render() {
+		const { comments } = this.state;
+		
 		return (
-			<div>
-				<Menu size="small" items={menuItems} />
-				
-				
 			
-			</div>
+		<Provider store={store}>
+				<BrowserRouter>
+				<Fragment>
+					<Header>I'm header</Header>
+					<Switch>
+						{routes.map((route, idx) => <Route key={idx} {...route} />)}
+					 </Switch>
+					<footer>I'm footer</footer>
+				</Fragment>
+				</BrowserRouter>
+		</Provider>
 		)
 	}
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-
-
-
