@@ -1,17 +1,13 @@
 import './CommentsForm.scss';
 
-
 import React, { Component } from 'react';
 
-//помогает проверять входные параметры
 import PropTypes from 'prop-types';
 export default class CommentsForm extends Component {
-	//описываем параметры, которые используем
 	static propTypes = {
 		onSubmit: PropTypes.func.isRequired,
 	}
 
-//Инициализируем состояни компаонента
 constructor(props) {
 	super(props);
 	
@@ -21,19 +17,15 @@ constructor(props) {
 	}
 }
 
-//узнать, что в input что то происходит. Подписаться на событие change
- handleChange = (event) => {
-	
-	 //чтобы что то записать в state нужно использовать спец функцию setState
-	 this.setState({
+handleChange = (event) => {
+	this.setState({
 		 [event.target.name]: event.target.value,
 	 });
 }
- //Действие с кнопкой отправить. Обработать нажатие на кнопку Send
- handleSubmit = (event) => {
+ 
+handleSubmit = (event) => {
 	 const {onSubmit} = this.props;
 	 
-	 //единственное, что нужно здесь сделать - убедиться что это функция
 	 if (typeof onSubmit === 'function') {
 		 onSubmit(this.state);
 	 }
