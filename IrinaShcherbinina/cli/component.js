@@ -7,7 +7,7 @@ const args = require('minimist')(process.argv.slice(2), { alias: {name: 'n'}});
 fs.mkdirSync(path.resolve(__dirname, '..', 'src', 'components', name));
 
 fs.writeFileSync(path.resolve(__dirname, '..', 'src', 'components', name, `${name}.jsx`),
-				 `import './${name}.scss';
+`import './${name}.scss';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -15,14 +15,15 @@ import PropTypes from 'prop-types';
 export default class ${name} extends Component {
 	static propTypes = {}
 
-static defaultProp ={}
+	static defaultProp ={}
+		
 	render() {
 		return (
 			<div className="${name}"></div>
 		);
-}
-}
-`,
+	        }
+	}
+    `,
 );
 
 fs.writeFileSync(path.resolve(__dirname, '..', 'src', 'components', name, `${name}.scss`),
