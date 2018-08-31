@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { load } from 'actions/comments';
 import CommentList from 'components/CommentsList';
 
-
 class CommentsListContainer extends PureComponent {
 	componentDidMount() {
 		const { loadComments } = this.props;
