@@ -18,7 +18,6 @@ class App extends Component {
 		}
 	}
 	
-	//процесс отрисовки компонента метод render
 	handleSubmit = (comment) => {
 		const {comments} = this.state;
 		
@@ -37,19 +36,13 @@ class App extends Component {
 					<Header>I'm header</Header>
 					<Switch>
 						{routes.map((route, idx) => <Route key={idx} {...route} />)}
-					 
-					</Switch>
+					 </Switch>
 					<footer>I'm footer</footer>
 				</Fragment>
 				</BrowserRouter>
 		</Provider>
-		
 		)
 	}
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-
-
-
