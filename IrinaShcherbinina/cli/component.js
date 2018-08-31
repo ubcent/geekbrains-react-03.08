@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 const path = require('path');
 const args = require('minimist')(process.argv.slice(2), { alias: {name: 'n'}});
@@ -13,6 +12,7 @@ fs.writeFileSync(path.resolve(__dirname, '..', 'src', 'components', name, `${nam
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 export default class ${name} extends Component {
 	static propTypes = {}
 
