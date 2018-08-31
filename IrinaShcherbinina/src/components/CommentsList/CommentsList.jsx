@@ -1,16 +1,12 @@
 import './CommentsList.scss';
 
-
 import React, { PureComponent, Fragment } from 'react';
-
-//помогает проверять входные параметры
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Comment from 'components/Comment';
 
 export default class CommentsList extends PureComponent {
-	//описываем параметры, которые используем
 	static propTypes = {
 		comments: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -21,11 +17,9 @@ export default class CommentsList extends PureComponent {
 		)
 	}
 
-//как решить проблему с пустым свойством
 static defaultProps ={
 	comments: [],
 }
-
 	render() {
 		const {comments, onLoadMore } = this.props;
 		
