@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 
 import Blog from 'components/Blog';
 
@@ -25,7 +25,7 @@ export default class BlogContainer extends PureComponent {
   }
 
   render() {
-    const {blog, loading} = this.state;
+    const { blog, loading } = this.state;
     return (
       loading ? 'Loading blog' : <Blog id={blog.id} title={blog.title} body={blog.body} />
     )

@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 
 import Comment from 'components/Comment';
 
@@ -27,7 +27,7 @@ export default class CommentContainer extends PureComponent {
   render() {
     const {comment, loading} = this.state;
     return (
-      loading ? 'Loading' : <Comment author={comment.name} message={comment.body} />
+      loading ? 'Loading comment' : <Comment author={comment.name} message={comment.body} />
     )
   }
 }

@@ -1,13 +1,22 @@
-import './Sidebar.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import './Sidebar.scss';
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  Button,
+} from 'reactstrap';
 
 export default class Sidebar extends Component {
   static propTypes = {
     items: PropTypes.arrayOf(
-      PropTypes.shape({ id: PropTypes.number, href: PropTypes.string, label: PropTypes.string })
+      PropTypes.shape({id: PropTypes.number, href: PropTypes.string, label: PropTypes.string})
     ),
   }
 
@@ -16,12 +25,20 @@ export default class Sidebar extends Component {
   }
 
   render() {
-    const { items } = this.props;
+    const {items} = this.props;
 
     return (
       <div className="sidebar">
-        <ul className="">{items.map((item) => <li key={item.id}><a href={item.href}>{item.label}</a></li>)}</ul>
+        <div className="card card-margin-top">
+          <div className="card-header">Categories</div>
+          <div className="card-body">
+            <ul className="list-group list-group-flush">{items.map((item) => <li className="list-group-item" key={item.id}><a className="card-text" href={item.href}>{item.label}</a></li>)}</ul>
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+
+

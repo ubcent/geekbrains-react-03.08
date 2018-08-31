@@ -1,16 +1,25 @@
 import 'bootstrap/dist/css/bootstrap.css';
 
-import React, {Component, Fragment} from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import {
+  Container,
+  Row,
+  Col,
+} from 'reactstrap';
 
 import routes from './routes';
+import store from './store';
 
-import Menu from './components/Menu';
-import Layout from './components/Layout';
-import Sidebar from './components/Sidebar';
-import Content from './components/Content';
+import Menu from 'components/Menu';
+import Layout from 'components/Layout';
+import Sidebar from 'components/Sidebar';
+import Content from 'components/Content';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
+import LoginButton from 'components/LoginButton';
 
 
 const menuItems = [
@@ -44,25 +53,12 @@ const sidebarItems = [
   },
   {
     id: 1,
-    label: 'New articles',
-    href: '/new'
+    label: 'Top rated',
+    href: '/top'
   },
 ];
 
-const articles = [
-  {
-    id: 0,
-    label: 'All articles',
-    href: '/all'
-  },
-  {
-    id: 1,
-    label: 'New articles',
-    href: '/new'
-  },
-];
-
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -78,29 +74,43 @@ class App extends Component {
 
     this.setState({
       comments: comments.concat([comment]),
+      blogs: blogs.concat([blog]),
     })
-    console.log('comment', comment);
   }
 
   render() {
     const {comments, blogs, users} = this.state;
 
     return (
-      <BrowserRouter>
-        <Fragment>
-          <Header>I'm header</Header>
-          <Layout className="layout row">
-            <Menu size="big" items={menuItems}></Menu>
-            <Sidebar items={sidebarItems} />
-            <Content articles={articles}>
-              <Switch>
-                {routes.map((route, idx) => <Route key={idx} {...route} />)}
-              </Switch>
-            </Content>
-            <footer>I'm footer</footer>
-          </Layout>
-        </Fragment>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Fragment>
+            <Header>I'm header</Header>
+            <Layout className="layout row">
+              <Container>
+                <Row>
+                  <Col xs={{size: 12, order: 1, offset: 0}}>
+                    <Menu size="big" items={menuItems}></Menu>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={{size: 3, order: 1, offset: 0}}>
+                    <Sidebar items={sidebarItems} />
+                  </Col>
+                  <Col xs={{size: 9, order: 1, offset: 0}}>
+                    <Content>
+                      <Switch>
+                        {routes.map((route, idx) => <Route key={idx} {...route} />)}
+                      </Switch>
+                    </Content>
+                  </Col>
+                </Row>
+                <Footer />
+              </Container>
+            </Layout>
+          </Fragment>
+        </BrowserRouter>
+      </Provider>
     )
   }
 }

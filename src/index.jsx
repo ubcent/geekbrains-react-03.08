@@ -16,7 +16,7 @@ class App extends Component {
       comments: [],
     }
   }
-  
+
   handleSubmit = (comment) => {
     const { comments } = this.state;
 
