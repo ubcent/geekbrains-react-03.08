@@ -3,14 +3,14 @@ import { createAction } from 'redux-actions';
 export const load = (dispatch) => {
 	dispatch(loadStart());
 	fetch('https://jsonplaceholder.typicode.com/comments')
-	.then((response) => response.json())
-	.then(
+	   .then((response) => response.json())
+	   .then(
 	(comments) => {
-		dispatch(loadComplete(comments));
+	    dispatch(loadComplete(comments));
 	},
-		() => {
-		dispatch(loadFail());
-		}
+	() => {
+	    dispatch(loadFail());
+	}
 	);
 }
 export const loadStart = createAction('[Comments] Load Start');
