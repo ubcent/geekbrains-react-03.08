@@ -2,8 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const args = require('minimist')(process.argv.slice(2), { alias: {name: 'n'}});
 
-console.log(args);														 
-const {name} = args;
+сonst {name} = args;
 
 fs.mkdirSync(path.resolve(__dirname, '..', 'src', 'components', name));
 
