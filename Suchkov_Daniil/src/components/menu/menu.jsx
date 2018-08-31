@@ -1,3 +1,5 @@
+import './menu.scss';
+
 import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
