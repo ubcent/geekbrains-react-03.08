@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './loginform.scss';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
@@ -20,7 +21,7 @@ export default class Loginform extends Component {
       }
     render() {
         return (
-            <ButtonDropdown direction="right" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
+            <ButtonDropdown className="Loginform" direction="right" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
                 <DropdownToggle caret>
                     Login
                 </DropdownToggle>

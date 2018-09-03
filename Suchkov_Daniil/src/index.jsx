@@ -41,7 +41,7 @@ class App extends Component {
         const { comments } = this.state;
 
         this.setState({
-            comments: comments.concat({comment}),
+            comments: comments.concat([comment]),
         })
     }
 
