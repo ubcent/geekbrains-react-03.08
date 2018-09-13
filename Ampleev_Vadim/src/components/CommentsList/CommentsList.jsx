@@ -9,6 +9,7 @@ export default class CommentsList extends PureComponent {
     static propTypes = {
         comments: PropTypes.arrayOf(
             PropTypes.shape({
+                id: PropTypes.number.isRequired,
                 author: PropTypes.string.isRequired,
                 message: PropTypes.string.isRequired,
             })
@@ -23,7 +24,7 @@ export default class CommentsList extends PureComponent {
         const { comments } = this.props;
         return (
             <ul className="CommentsList">
-                {comments.map((comment, i) => <li key={i}><Comment {...comment}/></li>)}
+                {comments.map((comment) => <li key={comment.id}><Comment {...comment}/></li>)}
             </ul>
         );
     }

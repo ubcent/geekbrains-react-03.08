@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import CommentsList from 'containers/CommentsListContainer';
+import CommentsListContainer from 'containers/CommentsListContainer';
 import CommentsForm from 'components/CommentsForm';
 
 export default class Main extends Component {
@@ -25,7 +25,7 @@ export default class Main extends Component {
         const { comments } = this.state;
         return (
             <Fragment>
-                <CommentsList comments={comments}/>
+                <CommentsListContainer comments={comments}/>
                 <CommentsForm onSubmit={this.handleSubmit}/>
             </Fragment>
         )
